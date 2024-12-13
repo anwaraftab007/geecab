@@ -44,6 +44,7 @@ ul.shadow-box .dropdown-submenu > a {
 }
 
 
+@media (min-width: 1200px) {
 
 /* Show the nested dropdown when the parent is hovered */
 .dropdown-submenu:hover > .shadow-box {
@@ -71,4 +72,5 @@ ul.shadow-box .dropdown-submenu > a {
 /* Optional: Style for hovering over nested menu items */
 .dropdown-submenu > .shadow-box > li > a:hover {
     background-color: #f1f1f1 !important;
+}
 }
