@@ -48,15 +48,16 @@ ul.shadow-box .dropdown-submenu > a {
     .dropdown .big-menu {
         display: none !important;
     }
+    
+.dropdown-submenu > .shadow-box > li > a:hover {
+    background-color: #f1f1f1;
+}
 }
 @media screen and (min-width: 1200px) {
     .dropdown .small-menu {
         display: none !important;
     }
     
-.dropdown-submenu > .shadow-box > li > a:hover {
-    background-color: #f1f1f1;
-}
 }
 /* Show the nested dropdown when the parent is hovered */
 .dropdown-submenu:hover > .shadow-box {
