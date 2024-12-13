@@ -53,16 +53,16 @@ ul.shadow-box .dropdown-submenu > a {
     .dropdown .small-menu {
         display: none !important;
     }
+    
+.dropdown-submenu > .shadow-box > li > a:hover {
+    background-color: #f1f1f1;
+}
 }
 /* Show the nested dropdown when the parent is hovered */
 .dropdown-submenu:hover > .shadow-box {
     display: block;
 }
 
-/* Optional: Style for hovering over nested menu items */
-.dropdown-submenu > .shadow-box > li > a:hover {
-    background-color: #f1f1f1;
-}
 /* Position the submenu to the left of the parent item */
 .dropdown-submenu > .shadow-box {
     position: absolute !important;
