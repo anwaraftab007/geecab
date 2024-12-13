@@ -1749,12 +1749,12 @@ Main Header One Css
   z-index: 1;
 }
 
-.main-menu .main-menu__list>li.current>a::after,
+/* .main-menu .main-menu__list>li.current>a::after,
 .main-menu .main-menu__list>li:hover>a::after,
 .stricky-header .main-menu__list>li.current>a::after,
 .stricky-header .main-menu__list>li:hover>a::after {
   color: var(--billdins-base);
-}
+} */
 
 .main-menu .main-menu__list>li>ul,
 .main-menu .main-menu__list>li>ul>li>ul,
@@ -1874,12 +1874,12 @@ Main Header One Css
   transition: 500ms;
 }
 
-.main-menu .main-menu__list>li>ul>li:hover>a::before,
+/* .main-menu .main-menu__list>li>ul>li:hover>a::before,
 .main-menu .main-menu__list>li>ul>li>ul>li:hover>a::before,
 .stricky-header .main-menu__list>li>ul>li:hover>a::before,
 .stricky-header .main-menu__list>li>ul>li>ul>li:hover>a::before {
   transform: translateY(-50%) scale(1);
-}
+} */
 
 .main-menu .main-menu__list>li>ul>li>ul,
 .stricky-header .main-menu__list>li>ul>li>ul {
