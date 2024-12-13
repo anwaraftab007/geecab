@@ -1,0 +1,74 @@
+/* Reduce the gap between the list items (li) in the dropdown */
+ul.shadow-box {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    column-count: 2 !important; /* Split the dropdown into two columns */
+    column-gap: 10px !important; /* Adjust space between columns */
+}
+
+/* Remove margin and padding from individual list items */
+ul.shadow-box > li {
+    margin: 0 !important;
+    padding: 5px 10px !important; /* Adjust padding as needed */
+}
+
+/* Reduce space between dropdown links */
+ul.shadow-box > li > a {
+    padding: 5px 10px !important; /* Adjust padding to reduce space between the links */
+}
+
+/* Adjust the space on hover (if needed) */
+ul.shadow-box > li:hover {
+    background-color: #f1f1f1 !important; /* Optional background change */
+}
+
+/* Ensure no extra margin on submenus */
+ul.shadow-box .dropdown-submenu {
+    margin: 0 !important;
+}
+
+/* Optional: Make sure submenu links also have reduced space */
+ul.shadow-box .dropdown-submenu > a {
+    padding: 5px 10px !important; /* Adjust padding for the submenu links */
+}
+
+/* Media query for small screens, ensuring proper alignment */
+@media (max-width: 768px) {
+    ul.shadow-box {
+        column-count: 1 !important; /* Make it a single column on smaller screens */
+    }
+}
+/* Style for the parent dropdown */
+.dropdown-submenu {
+    position: relative; /* Ensure submenu positioning is relative to this parent */
+}
+
+
+
+/* Show the nested dropdown when the parent is hovered */
+.dropdown-submenu:hover > .shadow-box {
+    display: block;
+}
+
+/* Optional: Style for hovering over nested menu items */
+.dropdown-submenu > .shadow-box > li > a:hover {
+    background-color: #f1f1f1;
+}
+/* Position the submenu to the left of the parent item */
+.dropdown-submenu > .shadow-box {
+    position: absolute !important;
+    right: 100% !important;  /* Open to the left */
+    top: 0 !important;       /* Align with top of the parent item */
+    z-index: 9999 !important; /* Ensure it is above other content */
+    display: none !important; /* Initially hidden */
+}
+
+/* Display the nested menu on hover */
+.dropdown-submenu:hover > .shadow-box {
+    display: block !important;
+}
+
+/* Optional: Style for hovering over nested menu items */
+.dropdown-submenu > .shadow-box > li > a:hover {
+    background-color: #f1f1f1 !important;
+}
