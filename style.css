@@ -77,7 +77,3 @@ ul.shadow-box .dropdown-submenu > a {
     display: block !important;
 }
 
-/* Optional: Style for hovering over nested menu items */
-.dropdown-submenu > .shadow-box > li > a:hover {
-    background-color: #f1f1f1 !important;
-}
