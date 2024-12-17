@@ -1,3 +1,10 @@
+ /* Style for the card hover effect */
+ .card:hover h3 {
+    color: white !important; /* Change the h3 text color to white on hover */
+}
+
+
+
 /* Reduce the gap between the list items (li) in the dropdown */
 ul.shadow-box {
     padding-left: 0 !important;
