@@ -61,7 +61,7 @@
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
     <!--Start Preloader-->
-    <div class="loader js-preloader" style="display: none;">
+    <div class="loader js-preloader">
         <div></div>
         <div></div>
         <div></div>
@@ -777,6 +777,189 @@
                 </div>
             </div>
         </section>
+
+        <link href="./2024/icons/style.css" rel="stylesheet"/>
+
+
+        <div class="embla">
+            <div class="embla__viewport">
+              <div class="embla__container">
+                <!-- First Slide - West Bengal Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-wb"></i></span>
+                  
+                    <p class="subheading">West Bengal</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Second Slide - Bhutan Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-Bhutan"></i></span>
+                  
+                    <p class="subheading">Bhutan</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Third Slide - Odisha Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-odisha"></i></span>
+                  
+                    <p class="subheading">Odisha</p>
+                  </div>
+                  </div>
+                </div>
+                
+                
+                <!-- Fifth Slide - Bihar Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-bihar"></i></span>
+                  
+                    <p class="subheading">Bihar</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Sixth Slide - Jharkhand Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-jharkhand"></i></span>
+                  
+                    <p class="subheading">Jharkhand</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Seventh Slide - Sikkim Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-sikkim"></i></span>
+                  
+                    <p class="subheading">Sikkim</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Eighth Slide - Assam Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-assam"></i></span>
+                  
+                    <p class="subheading">Assam</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Ninth Slide - Tripura Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-tripura"></i></span>
+                  
+                    <p class="subheading">Tripura</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Tenth Slide - Manipur Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-manipur"></i></span>
+                  
+                    <p class="subheading">Manipur</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Eleventh Slide - Nagaland Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-nagaland"></i></span>
+                  
+                    <p class="subheading">Nagaland</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Twelfth Slide - Arunachal Pradesh Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-gas-pipe"></i></span>
+                  
+                    <p class="subheading">Arunachal Pradesh</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Thirteenth Slide - Mizoram Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-mizoram"></i></span>
+                  
+                    <p class="subheading">Mizoram</p>
+                  </div>
+                  </div>
+                </div>
+                
+                <!-- Fourteenth Slide - Meghalaya Icon -->
+                <div class="embla__slide">
+                  <div class="embla__slide__number">
+                    <div>
+                    <span><i class="industrio-icon-meghalaya"></i></span>
+                  
+                    <p class="subheading">Meghalaya</p>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+      
+          <!-- Embla Carousel and AutoScroll CDN -->
+          <script type="module">
+            import EmblaCarousel from 'https://cdn.jsdelivr.net/npm/embla-carousel@8.5.1/+esm';
+            import AutoScroll from 'https://cdn.jsdelivr.net/npm/embla-carousel-auto-scroll@8.5.1/+esm';
+      
+            // Embla Carousel and AutoScroll Initialization
+            const emblaNode = document.querySelector('.embla');
+            const viewportNode = emblaNode.querySelector('.embla__viewport');
+            
+            // Carousel options
+            const OPTIONS = { loop: true };
+      
+            // Initialize AutoScroll with a very small interval for continuous scrolling
+            const autoScroll = AutoScroll({ interval: 20 }); // Adjust this value for speed
+            
+            // Initialize EmblaCarousel
+            const emblaApi = EmblaCarousel(viewportNode, OPTIONS, [autoScroll]);
+      
+            // Add hover event listeners to control autoplay
+            emblaNode.addEventListener('mouseenter', () => {
+              autoScroll.stop(); // Stop autoplay on hover
+            });
+      
+            emblaNode.addEventListener('mouseleave', () => {
+              autoScroll.play(); // Resume autoplay when hover ends
+            });
+          </script>
 
         
         <!--End About One-->

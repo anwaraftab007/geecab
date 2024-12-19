@@ -1,3 +1,71 @@
+.embla .subheading {
+    font-size: 18px !important;
+}
+.embla {
+  max-width: 90%;
+  margin: auto;
+  margin-bottom: 12px;
+  --slide-height: 9rem;
+  --slide-spacing: 1rem;
+  --slide-size: 15%; /* Default slide size for larger screens */
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}
+
+.embla__slide__number { 
+  border-radius: 1rem;
+  font-size: 4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--slide-height);
+  user-select: none;
+  background: #f5f5f5;
+  color: #333;
+}
+
+/* Mobile (small devices) */
+@media (max-width: 500px) {
+  .embla {
+    --slide-size: 60%; /* Larger slides for mobile */
+  }
+}
+
+/* Tablet (medium devices) */
+@media (min-width: 501px) and (max-width: 700px) {
+  .embla {
+    --slide-size: 40%; /* Medium slides for tablets */
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .embla {
+    --slide-size: 30%; /* Medium slides for tablets */
+  }
+}
+/* Laptop (large devices) */
+@media (min-width: 901px) {
+  .embla {
+    --slide-size: 15%; /* Default slide size for laptops */
+  }
+}
+ 
  /* Style for the card hover effect */
  .card:hover h3 {
     color: white !important; /* Change the h3 text color to white on hover */
