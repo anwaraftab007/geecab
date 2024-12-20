@@ -30,7 +30,7 @@ Page Header
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(var(--billdins-black-rgb), 0.82);
+    background: rgba(var(--billdins-black-rgb), 0.62);
     content: "";
     z-index: -1;
 }
