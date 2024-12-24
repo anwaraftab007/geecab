@@ -626,7 +626,7 @@
     </div>
 
     <div class="p-6 space-y-6">
-        <form action="#" method="POST">
+        <form action="#" id="contactForm" method="POST">
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6 sm:col-span-3">
                     <label for="name" class="text-sm font-medium text-gray-900 block mb-2">Name*</label>
@@ -677,19 +677,21 @@
                     </select>
                 </div>
             </div>
+            <div class="p-6 border-t border-gray-200 rounded-b">
+                <button type="submit" class="thm-btn">
+                    Submit Now
+                    <i class="icon-next"></i>
+                    <span class="hover-btn hover-bx"></span>
+                    <span class="hover-btn hover-bx2"></span>
+                    <span class="hover-btn hover-bx3"></span>
+                    <span class="hover-btn hover-bx4"></span>
+                </button>  
+            </div>
         </form>
+        
     </div>
 
-    <div class="p-6 border-t border-gray-200 rounded-b">
-        <button type="submit" class="thm-btn">
-            Submit Now
-            <i class="icon-next"></i>
-            <span class="hover-btn hover-bx"></span>
-            <span class="hover-btn hover-bx2"></span>
-            <span class="hover-btn hover-bx3"></span>
-            <span class="hover-btn hover-bx4"></span>
-        </button>  
-    </div>
+
 
 
                             <div class="result"></div>
@@ -1101,6 +1103,7 @@
         <span class="scroll-to-top__wrapper"><span class="scroll-to-top__inner"></span></span>
         <span class="scroll-to-top__text"> Go Back Top</span>
     </a>
+    
     <script src="2024/billdins/assets/js/jquery-3.6.0.min.js"></script>
     <script src="2024/billdins/assets/js/jquery.ajaxchimp.min.js"></script>
     <script src="2024/billdins/assets/js/jquery.validate.min.js"></script>
@@ -1126,4 +1129,51 @@
     <script src="2024/billdins/assets/js/11-isotope.js"></script>
     <!-- template js -->
     <script src="2024/billdins/assets/js/script.js"></script>
+    <script>
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+     e.preventDefault(); // Prevent the default form submission behavior
+
+     const name = document.getElementById("name").value;
+     const email = document.getElementById("email").value;
+     const phone = document.getElementById("phone").value;
+     const state = document.getElementById("state").value;
+     const city = document.getElementById("city").value;
+     const productsInterested = document.getElementById("products").value;
+
+     try {
+         const response = await fetch("https://geecab-server.onrender.com/api/contact", {
+             method: "POST",
+             headers: {
+                 "Content-Type": "application/json",
+             },
+             body: JSON.stringify({
+                 name,
+                 email,
+                 phone,
+                 state,
+                 city,
+                 productsInterested,
+             }),
+         });
+
+         // Log the response to check if it is a valid JSON
+         const responseText = await response.text();
+         console.log(responseText);  // Check the response in the console
+
+         // Check if the response is JSON
+         if (response.ok) {
+             const result = JSON.parse(responseText);  // Parse only if it's valid JSON
+             document.querySelector(".result").innerHTML = `<p style="color: green;">${result.message}</p>`;
+         } else {
+             document.querySelector(".result").innerHTML = `<p style="color: red;">${responseText || "Something went wrong."}</p>`;
+         }
+     } catch (error) {
+         console.error("Error:", error);
+         document.querySelector(".result").innerHTML = `<p style="color: red;">Failed to send data. Please try again later.</p>`;
+     }
+ });
+
+    </script>
+    
+    
 </html>
