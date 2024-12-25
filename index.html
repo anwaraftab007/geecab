@@ -60,7 +60,7 @@
     
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
-    <!--Start Preloader-->
+    <!--Start Preloader--> 
     <div class="loader js-preloader">
         <div></div>
         <div></div>
@@ -1411,7 +1411,7 @@
                                 <h2>Connect with us</h2>
                                 <p>Fill all information details to consult with us to get sevices from us</p>
                             </div>
-                            <form method="post" action="index.html">
+                            <form method="post" action="#" id="messageForm">
                                 <div class="form-group">
                                     <input type="text" name="username" placeholder="Your Name" required="">
                                 </div>
@@ -2053,4 +2053,45 @@
     <script src="2024/billdins/assets/js/11-isotope.js"></script>
     <!-- template js -->
     <script src="2024/billdins/assets/js/script.js"></script>
+    <script>
+        document.getElementById("messageForm").addEventListener("submit", async (event) => {
+          event.preventDefault(); // Prevent form from refreshing the page
+      
+          const formData = new FormData(event.target);
+          const formObject = {
+            name: formData.get("name"),
+            email: formData.get("email"),
+            phone: formData.get("phone"),
+            message: formData.get("message"),
+          };
+      
+          // Validation for required fields
+          if (!formObject.name || !formObject.email || !formObject.phone) {
+            document.getElementById("responseMessage").innerText = "Please fill out all required fields.";
+            return;
+          }
+      
+          try {
+            const response = await fetch("https://geecab-server.onrender.com/api/contact", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formObject),
+            });
+      
+            if (response.ok) {
+              const responseData = await response.json();
+              document.getElementById("responseMessage").innerText = responseData.message || "Message sent successfully!";
+            } else {
+              const errorData = await response.json();
+              document.getElementById("responseMessage").innerText = errorData.error || "An error occurred.";
+            }
+          } catch (error) {
+            document.getElementById("responseMessage").innerText = "Failed to send message. Please try again.";
+            console.error("Error:", error);
+          }
+        });
+      </script>
+      
 </html>
