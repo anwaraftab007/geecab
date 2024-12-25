@@ -1440,7 +1440,9 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="result"></div>
                     </div>
+
                     <!--End Appoinment One Form-->
                 </div>
             </div>
@@ -2054,44 +2056,55 @@
     <!-- template js -->
     <script src="2024/billdins/assets/js/script.js"></script>
     <script>
-        document.getElementById("messageForm").addEventListener("submit", async (event) => {
-          event.preventDefault(); // Prevent form from refreshing the page
-      
-          const formData = new FormData(event.target);
-          const formObject = {
-            name: formData.get("name"),
-            email: formData.get("email"),
-            phone: formData.get("phone"),
-            message: formData.get("message"),
-          };
-      
-          // Validation for required fields
-          if (!formObject.name || !formObject.email || !formObject.phone) {
-            document.getElementById("responseMessage").innerText = "Please fill out all required fields.";
-            return;
-          }
-      
-          try {
-            const response = await fetch("https://geecab-server.onrender.com/api/contact", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formObject),
-            });
-      
-            if (response.ok) {
-              const responseData = await response.json();
-              document.getElementById("responseMessage").innerText = responseData.message || "Message sent successfully!";
-            } else {
-              const errorData = await response.json();
-              document.getElementById("responseMessage").innerText = errorData.error || "An error occurred.";
+        document.getElementById("messageForm").addEventListener("submit", async (e) => {
+            e.preventDefault(); // Prevent the default form submission behavior
+    
+            // Collect input values
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const state = document.getElementById("state")?.value || ""; // Optional
+            const city = document.getElementById("city")?.value || ""; // Optional
+            const productsInterested = document.getElementById("products")?.value || ""; // Optional
+            const message = document.getElementById("message")?.value || ""; // Optional
+    
+            try {
+                const response = await fetch("https://geecab-server.onrender.com/api/contact", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        phone,
+                        state,
+                        city,
+                        productsInterested,
+                        message,
+                    }),
+                });
+    
+                const responseText = await response.text();
+                console.log(responseText); // Log the response for debugging
+    
+                // Handle response
+                if (response.ok) {
+                    try {
+                        const result = JSON.parse(responseText); // Parse response JSON if available
+                        document.querySelector(".result").innerHTML = `<p style="color: green;">${result.message}</p>`;
+                    } catch {
+                        document.querySelector(".result").innerHTML = `<p style="color: green;">Form submitted successfully!</p>`;
+                    }
+                } else {
+                    document.querySelector(".result").innerHTML = `<p style="color: red;">${responseText || "An error occurred. Please try again."}</p>`;
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                document.querySelector(".result").innerHTML = `<p style="color: red;">Failed to send data. Please try again later.</p>`;
             }
-          } catch (error) {
-            document.getElementById("responseMessage").innerText = "Failed to send message. Please try again.";
-            console.error("Error:", error);
-          }
         });
-      </script>
+    </script>
+    
       
 </html>
