@@ -61,7 +61,7 @@
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
     <!--Start Preloader-->
-    <div class="loader js-preloader">
+    <div class="loader js-preloader" style="display: none;">
         <div></div>
         <div></div>
         <div></div>
@@ -167,7 +167,7 @@
                                                 <a href="./brands.html">Brands</a>
                                             </li>
                                             <li>
-                                                <a href="./blogs.html">Blog</a>
+                                                <a href="./blog.html">Blog</a>
                                             </li>
                                             <!-- Services -->
                                             <li class="dropdown">
@@ -580,16 +580,17 @@
                         </button>
                     </div>
                 </form>
+                <p class="result"></p>
             </div>
 
             <script>
-                const apiBaseUrl = "https://geecab-server.onrender.com/api/blog"; // Adjust to your API URL
+                const apiBaseUrl = "http://localhost:5000/api/blog"; // Adjust to your API URL
             
                 document.addEventListener("DOMContentLoaded", function() {
     // Now it's safe to run your script
     document.getElementById("createBlogForm").addEventListener("submit", async (e) => {
         e.preventDefault();
-
+        document.getElementsByClassName('result').innerHTML = '<span class="text-xl font-bold text-blue-700">Creating Blog</span>';
         const currentDate = new Date().toISOString(); // Get current date in ISO format
         const formData = new FormData();
         formData.append("title", document.getElementById("title").value);
@@ -605,12 +606,16 @@
 
             if (response.ok) {
                 alert("Blog created successfully!");
+                document.getElementsByClassName('result').innerHTML = '<span class="text-3xl font-bold text-green-900">Blog Created Successfully..</span>';
                 fetchBlogs(); // Refresh the blog list
+                window.location.href = "/blogs.html"; // Redirect to the updated blog page
             } else {
                 alert("Error creating blog.");
+                document.getElementsByClassName('result').innerHTML = '<span class="text-3xl font-bold text-red-900">Error Creating a Blog..</span>';
             }
         } catch (error) {
             console.error("Error:", error);
+            document.getElementsByClassName('result').innerHTML = `<span class="text-3xl font-bold text-red-900">Error Creating a Blog..<br>Error: ${error}</span>`;
         }
     });
 

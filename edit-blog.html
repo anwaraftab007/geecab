@@ -171,7 +171,7 @@
                                                 <a href="./brands.html">Brands</a>
                                             </li>
                                             <li>
-                                                <a href="./blogs.html">Blog</a>
+                                                <a href="./blog.html">Blog</a>
                                             </li>
                                             <!-- Services -->
                                             <li class="dropdown">
@@ -648,7 +648,7 @@
                         style="visibility: visible; animation-duration: 1500ms; animation-name: fadeInUp;">
                         <li><a href="/index.html">Home</a></li>
                         <li><span class="icon-right"></span></li>
-                        <li>Contact us</li>
+                        <li>Editing Blog</li>
                     </ul>
                 </div>
             </div>
@@ -707,6 +707,7 @@
                                 </button>
                             </div>
                         </form>
+                        <p class="result"></p>
                     </div>
                 </div>
             </div>
@@ -718,6 +719,7 @@
 
                     document.addEventListener("DOMContentLoaded", function () {
                         // Extract blog slug from the URL (assuming it's the last part of the URL)
+                        
                         const urlParams = new URLSearchParams(window.location.search);
                         const blogSlug = urlParams.get('slug');
                         // Pre-fill the form with existing blog data
@@ -748,7 +750,7 @@
                         // Handle form submission to update the blog
                         document.getElementById("updateBlogForm").addEventListener("submit", async (e) => {
                             e.preventDefault();
-
+                            document.getElementsByClassName('result').innerHTML = '<span class="text-xl font-bold text-red-900">Updating Blog..</span>';
                             const currentDate = new Date().toISOString(); // Get current date in ISO format
                             const formData = new FormData();
                             formData.append("title", document.getElementById("title").value);
@@ -767,12 +769,15 @@
 
                                 if (response.ok) {
                                     alert("Blog updated successfully!");
+                                    document.getElementsByClassName('result').innerHTML = '<span class="text-xl font-bold text-green-700">Blog updated Successfully..</span>';
                                     window.location.href = "/blogs.html"; // Redirect to the updated blog page
                                 } else {
                                     alert("Error updating blog.");
                                 }
                             } catch (error) {
                                 console.error("Error:", error);
+                                document.getElementsByClassName('result').innerHTML = `<span class="text-xl font-bold text-red-900">Error Creating a Blog..<br>Error: ${error}</span>`;
+       
                             }
                         });
                     });
