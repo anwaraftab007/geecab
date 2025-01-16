@@ -707,7 +707,7 @@
                                 </button>
                             </div>
                         </form>
-                        <p class="result"></p>
+                        <p id="result"></p>
                     </div>
                 </div>
             </div>
@@ -750,7 +750,7 @@
                         // Handle form submission to update the blog
                         document.getElementById("updateBlogForm").addEventListener("submit", async (e) => {
                             e.preventDefault();
-                            document.getElementsByClassName('result').innerHTML = '<span class="text-xl font-bold text-red-900">Updating Blog..</span>';
+                            document.getElementById('result').innerHTML = '<span class="text-base font-bold text-red-900">Updating Blog..</span>';
                             const currentDate = new Date().toISOString(); // Get current date in ISO format
                             const formData = new FormData();
                             formData.append("title", document.getElementById("title").value);
@@ -769,14 +769,14 @@
 
                                 if (response.ok) {
                                     alert("Blog updated successfully!");
-                                    document.getElementsByClassName('result').innerHTML = '<span class="text-xl font-bold text-green-700">Blog updated Successfully..</span>';
+                                    document.getElementById('result').innerHTML = '<span class="text-base font-bold text-green-700">Blog updated Successfully..</span>';
                                     window.location.href = "/blogs.html"; // Redirect to the updated blog page
                                 } else {
                                     alert("Error updating blog.");
                                 }
                             } catch (error) {
                                 console.error("Error:", error);
-                                document.getElementsByClassName('result').innerHTML = `<span class="text-xl font-bold text-red-900">Error Creating a Blog..<br>Error: ${error}</span>`;
+                                document.getElementById('result').innerHTML = `<span class="text-base font-bold text-red-900">Error Creating a Blog..<br>Error: ${error}</span>`;
        
                             }
                         });
