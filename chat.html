@@ -420,7 +420,7 @@ body {
     </div>
     <script>
         const div = document.querySelector(".home_content");
-        fetch("http://localhost:5000/api/is-logged-in", {
+        fetch("https://geecab-server.onrender.com/api/is-logged-in", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
@@ -497,7 +497,7 @@ searchBtn.addEventListener('click', () => {
 
 
 <script defer>
-    const apiBaseUrl = "http://localhost:5000/api/contact";
+    const apiBaseUrl = "https://geecab-server.onrender.com/api/contact";
 const token = localStorage.getItem("authToken"); // Get token from localStorage
 
 if (!token) {

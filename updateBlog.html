@@ -507,7 +507,7 @@ body {
     </div>
     <script>
         const div = document.querySelector(".home_content");
-        fetch("http://localhost:5000/api/is-logged-in", {
+        fetch("https://geecab-server.onrender.com/api/is-logged-in", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("authToken")}`,
