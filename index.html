@@ -1783,10 +1783,10 @@ const fetchLatestBlogs = async () => {
                 <p><span class="icon-user"></span> <a href="#">Admin</a></p>
               </li>
             </ul>
-            <h2><a href="/blog.html?slug=${blog._id}">${blog.title}</a></h2>
+            <h2><a href="/blog.html?slug=${blog.slug}">${blog.title}</a></h2>
             <p>${blog.content.slice(0, 100)}...</p>
             <div class="btn-box">
-              <a href="/blog.html?slug=${blog._id}">Read More <span class="icon-next"></span></a>
+              <a href="/blog.html?slug=${blog.slug}">Read More <span class="icon-next"></span></a>
             </div>
           </div>
         </div>
