@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geecab | Admin </title>
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+  </head>
+<style>
+  /* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 78px;
+  background: #11101d;
+  padding: 6px 14px;
+  transition: all 0.5 ease;
+}
+
+.sidebar.active {
+  width: 240px;
+}
+
+.sidebar .logo_content .logo {
+  color: #fff;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active .logo_content .logo {
+  opacity: 1;
+}
+
+.logo_content .logo i {
+  font-size: 28px;
+  margin-right: 5px;
+}
+
+.logo_content .logo .logo_name {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.sidebar #btn {
+  position: absolute;
+  color: #fff;
+  left: 50%;
+  top: 6px;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+}
+
+.sidebar.active #btn {
+  left: 90%;
+}
+
+.sidebar ul {
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 50px;
+}
+
+.sidebar ul li .tooltip {
+  position: absolute;
+  left: 122px;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  height: 35px;
+  width: 122px;
+  background: #fff;
+  line-height: 35px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.sidebar.active ul li .tooltip {
+  display: none;
+}
+
+.sidebar ul li:hover .tooltip {
+  transition: all 0.5s ease;
+  opacity: 1;
+  top: 50%;
+}
+
+.sidebar ul li input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  background: #1d1b31;
+  padding-left: 50px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.sidebar ul li .bx-search {
+  position: absolute;
+  z-index: 99;
+  color: #fff;
+  font-size: 22px;
+  transition: all 0.5 ease;
+}
+
+.sidebar ul li .bx-search:hover {
+  background: #fff;
+  color: #1d1b31;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  white-space: nowrap;
+}
+
+.sidebar ul li a:hover {
+  color: #11101d;
+  background: #fff;
+}
+
+.sidebar ul li i {
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.sidebar .links_name {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar .profile_content {
+  position: absolute;
+  color: #fff;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.sidebar .profile_content .profile {
+  position: relative;
+  padding: 10px 6px;
+  height: 60px;
+  background: none;
+  transition: all 0.5s ease;
+}
+
+.sidebar.active .profile_content .profile {
+  background: #1d1b31;
+}
+
+.profile_content .profile .profile_details {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.sidebar.active .profile .profile_details {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.profile .profile_details img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.profile .profile_details .name_job {
+  margin-left: 10px;
+}
+
+.profile .profile_details .name {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.profile .profile_details .job {
+  font-size: 12px;
+}
+
+.profile #log_out {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  min-width: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.5s ease;
+  background: #1d1b31;
+}
+
+.sidebar.active .profile #log_out {
+  left: 88%;
+}
+
+.sidebar.active .profile #log_out {
+  background: none;
+}
+
+.home_content {
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 78px);
+  left: 78px;
+  transition: all 0.5s ease;
+}
+
+.home_content .text {
+  font-size: 25px;
+  font-weight: 500;
+  color: #1d1b31;
+  margin: 12px;
+}
+
+.sidebar.active ~ .home_content {
+  width: calc(100% - 240px);
+  left: 240px;
+}
+
+</style>
+  <body>
+    <div class="sidebar">
+      <div class="logo_content">
+        <div class="logo">
+          
+          <div class="logo_name">
+            Geecab
+          </div>
+        </div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav_list">
+        <li>
+          <a href="/admin010.html">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+          <a href="/updateBlog.html">
+            <i class="bx bx-edit"></i>
+            <span class="links_name">Edit Blog</span>
+          </a>
+          <span class="tooltip">Edit Blog</span>
+        </li>
+        <li>
+          <a href="/updateBlog.html">
+            <i class="bx bx-trash"></i>
+            <span class="links_name">Delete Blog</span>
+          </a>
+          <span class="tooltip">Delete Blog</span>
+        </li><li>
+          <a href="/chat.html">
+            <i class="bx bx-chat"></i>
+            <span class="links_name">Enquiry Blog</span>
+          </a>
+           <span class="tooltip">Enquiry Blog</span>
+        </li>
+      </ul>
+      <div class="profile_content">
+        <div class="profile">
+          
+          <i class="bx bx-log-out" id="log_out"></i>
+        </div>
+      </div>
+    </div>
+      
+    </div>
+    <div class="home_content" style="display: none;">
+        
+        <section class="contact">
+            <div class="w-full flex items-center justify-between text-center">
+                <div class="w-full text">Create a Blog</div>
+            </div>
+            
+            <div class="p-6 space-y-6 flex justify-center">
+                <form id="createBlogForm" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl px-4 md:px-8">
+                    <!-- Left Side: Title and Thumbnail -->
+                    <div class="space-y-6">
+                        <!-- Title -->
+                        <div>
+                            <label for="title" class="text-sm font-medium text-gray-900 block mb-2">Title*</label>
+                            <input type="text" name="title" id="title" 
+                                class="h-full shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#FF5E14] focus:border-cyan-600 block w-full p-2.5" 
+                                placeholder="Blog Title" required>
+                        </div>
+            
+                        <!-- Thumbnail -->
+                        <div>
+                            <div class="flex items-center justify-center w-full">
+                                <label for="dropzone-file" 
+                                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-orange-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-orange-100">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <svg class="w-8 h-8 mb-4 text-white" 
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                        </svg>
+                                        <p class="mb-2 text-sm text-white">
+                                            <span class="font-semibold">Click to upload</span> or drag and drop
+                                        </p>
+                                        <p class="text-xs text-white">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                                    </div>
+                                    <input id="dropzone-file" type="file" name="image" class="hidden" required>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- Right Side: Content -->
+                    <div class="">
+                        <label for="content" class="text-sm font-medium text-gray-900 block mb-2">Content*</label>
+                        <textarea name="content" id="content"
+                            class="h-full shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#FF5E14] focus:border-cyan-600 block w-full p-2.5" 
+                            placeholder="Write your blog content here..." required></textarea>
+                    </div>
+            
+                    <!-- Submit Button -->
+                    <div class="md:col-span-2 p-6 border-t border-gray-200 rounded-b text-center">
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Submit</button>
+
+                    </div>
+                
+            <p id="result"></p>
+                </form>
+            </div>
+            <script>
+const div = document.querySelector(".home_content");
+fetch("http://localhost:5000/api/is-logged-in", {
+    method: "GET",
+    headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
+})
+    .then((response) => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error("Unauthorized");
+        }
+    })
+    .then((data) => {
+        // Redirect to the create blog page or show the form
+        div.style.display = "block";
+    })
+    .catch((error) => {
+        console.error(error);
+        // Redirect to login if not authenticated
+        window.location.href = "/login.html";
+    });
+
+
+    document.getElementById("log_out").addEventListener("click", function () {
+        // Clear the auth token from localStorage
+        localStorage.removeItem("authToken");
+        
+        // Optional: If you also store it in sessionStorage
+        sessionStorage.removeItem("authToken");
+
+        // Redirect the user to the login page
+        window.location.href = "/login.html";
+    });
+
+                const apiBaseUrl = "https://geecab-server.onrender.com/api/blog"; // Adjust to your API URL
+            
+                document.addEventListener("DOMContentLoaded", function() {
+    // Now it's safe to run your script
+    document.getElementById("createBlogForm").addEventListener("submit", async (e) => {
+        // alert("Submit working");
+        e.preventDefault();
+        const resultDiv = document.getElementById('result'); // Access the first element with the class "result"
+
+resultDiv.innerHTML = '<span class="text-base font-bold text-blue-700">Creating Blog</span>';
+const currentDate = new Date().toISOString(); // Get current date in ISO format
+        const formData = new FormData();
+        formData.append("title", document.getElementById("title").value);
+        formData.append("content", document.getElementById("content").value);
+        formData.append("date", currentDate);  // Add the current date
+        formData.append("image", document.getElementById("dropzone-file").files[0]);
+
+        try {
+            const response = await fetch(apiBaseUrl, {
+                method: "POST",
+                body: formData,
+            });
+
+            if (response.ok) {
+                alert("Blog created successfully!");
+                resultDiv.innerHTML = '<span class="text-base font-bold text-green-900">Blog Created Successfully..</span>';
+        fetchBlogs(); // Refresh the blog list
+        window.location.href = "/blogs.html"; // Redirect to the updated blog page
+     } else {
+                alert("Error creating blog.");
+                document.getElementById('result').innerHTML = '<span class="text-base font-bold text-red-900">Error Creating a Blog..</span>';
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            resultDiv.innerHTML = `<span class="text-base font-bold text-red-900">Error Creating a Blog..<br>Error: ${error}</span>`;
+
+        }
+    });
+
+    // Fetch and display all blogs
+    async function fetchBlogs() {
+        try {
+            const response = await fetch(apiBaseUrl);
+            const blogs = await response.json();
+
+            const blogList = document.getElementById("blogList");
+            if (!blogList) {
+                console.error("blogList element not found!");
+                return;
+            }
+            blogList.innerHTML = ""; // Clear existing content
+
+            blogs.forEach((blog) => {
+                const blogDiv = document.createElement("div");
+                blogDiv.className = "blog";
+
+                blogDiv.innerHTML = `
+                    <h3>${blog.title}</h3>
+                    <p><strong>Date:</strong> ${new Date(blog.date).toLocaleDateString()}</p>
+                    <p>${blog.content}</p>
+                    <img src="${blog.image}" alt="${blog.title}" style="max-width: 100%; height: auto;">
+                `;
+
+                blogList.appendChild(blogDiv);
+            });
+        } catch (error) {
+            console.error("Error fetching blogs:", error);
+        }
+    }
+
+    // Initial fetch to load blogs
+    fetchBlogs();
+});
+
+            </script>
+            
+            
+            
+            
+        </section>
+    </div>
+        
+
+    <script>
+
+let btn = document.querySelector('#btn');
+let sidebar = document.querySelector('.sidebar');
+let searchBtn = document.querySelector('.bx-search');
+
+btn.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
+
+searchBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('active');
+});
+
+    </script>
+  </body>
+</html>
+
+    <!-- <h1>Login</h1>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+    </form>
+    <p id="loginStatus"></p> -->
+
+  
+
+    <script>
+        const authToken = localStorage.getItem("authToken");
+
+        if (authToken) {
+            document.getElementById("status").innerText = "Welcome! You are authorized.";
+            document.getElementById("protectedContent").style.display = "block";
+        } else {
+            document.getElementById("status").innerText = "You are not authorized to access this page.";
+            setTimeout(() => {
+                window.location.href = "/login.html"; // Redirect to login page
+            }, 2000);
+        }
+    </script>

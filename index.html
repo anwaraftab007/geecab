@@ -63,11 +63,11 @@
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
     <!--Start Preloader-->
-    <div class="loader js-preloader">
+    <!-- <div class="loader js-preloader">
         <div></div>
         <div></div>
         <div></div>
-    </div>
+    </div> -->
     <!--End Preloader-->
     <div class="page-wrapper">
         <!--Start Main Header One-->
@@ -1741,7 +1741,7 @@
                     </div>
                     <h2 class="sec-title__title tg-element-title">Latest Blog & News</h2>
                 </div>
-                <div class="row">
+                <div class="row" id="latest-blogs-container">
                     <!--Start Blog One Single-->
                     <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="blog-one__single">
@@ -1775,74 +1775,63 @@
                         </div>
                     </div>
                     <!--End Blog One Single-->
-                    <!--Start Blog One Single-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1500ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__single-img">
-                                <div class="date-box">
-                                    <h3><span class="icon-calendar"></span> 20 Jun, 2024</h3>
-                                </div>
-                                <div class="inner">
-                                    <img src="2024/billdins/assets/images/blog/blog-v1-img2.jpg" alt="">
-                                    <img src="2024/billdins/assets/images/blog/blog-v1-img2.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="blog-one__single-content">
-                                <ul class="meta-box">
-                                    <li>
-                                        <p><span class="icon-conversation"></span> <a href="#">02 Comments</a></p>
-                                    </li>
-                                    <li>
-                                        <p><span class="icon-user"></span> <a href="#">Admin</a></p>
-                                    </li>
-                                </ul>
-                                <h2><a href="2024/billdins/blog-details.html">Turning houses into homes <br> and dreams
-                                        into
-                                        reality</a></h2>
-                                <p>Real estate refers to land, buildings, natural resources such as water </p>
-                                <div class="btn-box">
-                                    <a href="2024/billdins/blog-details.html">Read More <span
-                                            class="icon-next"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Blog One Single-->
-                    <!--Start Blog One Single-->
-                    <div class="col-xl-4 col-lg-4 wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
-                        <div class="blog-one__single">
-                            <div class="blog-one__single-img">
-                                <div class="date-box">
-                                    <h3><span class="icon-calendar"></span> 20 Jun, 2024</h3>
-                                </div>
-                                <div class="inner">
-                                    <img src="2024/billdins/assets/images/blog/blog-v1-img3.jpg" alt="">
-                                    <img src="2024/billdins/assets/images/blog/blog-v1-img3.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="blog-one__single-content">
-                                <ul class="meta-box">
-                                    <li>
-                                        <p><span class="icon-conversation"></span> <a href="#">02 Comments</a></p>
-                                    </li>
-                                    <li>
-                                        <p><span class="icon-user"></span> <a href="#">Admin</a></p>
-                                    </li>
-                                </ul>
-                                <h2><a href="2024/billdins/blog-details.html">Turning houses into homes <br> and dreams
-                                        into
-                                        reality</a></h2>
-                                <p>Real estate refers to land, buildings, natural resources such as water </p>
-                                <div class="btn-box">
-                                    <a href="2024/billdins/blog-details.html">Read More <span
-                                            class="icon-next"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Blog One Single-->
+                   
                 </div>
             </div>
+            <script>
+                const apiBaseUrl = "http://localhost:5000/api/blog/latest"; // Adjust base URL if needed
+
+const fetchLatestBlogs = async () => {
+  try {
+    const response = await fetch(apiBaseUrl);
+    if (!response.ok) throw new Error("Failed to fetch latest blogs.");
+    const blogs = await response.json();
+
+    const container = document.getElementById("latest-blogs-container");
+    container.innerHTML = ""; // Clear any existing content
+
+    blogs.forEach((blog) => {
+      const blogItem = document.createElement("div");
+      blogItem.className = "col-xl-4 col-lg-4 wow fadeInLeft";
+      blogItem.innerHTML = `
+        <div class="blog-one__single">
+          <div class="blog-one__single-img">
+            <div class="date-box">
+              <h3><span class="icon-calendar"></span> ${new Date(blog.date).toLocaleDateString()}</h3>
+            </div>
+            <div class="inner">
+              <img src="${blog.image}" alt="${blog.title}" />
+              <img src="${blog.image}" alt="${blog.title}" />
+            </div>
+          </div>
+          <div class="blog-one__single-content">
+            <ul class="meta-box">
+              <li>
+                <p><span class="icon-conversation"></span> <a href="#">${blog.comments || "2"} Comments</a></p>
+              </li>
+              <li>
+                <p><span class="icon-user"></span> <a href="#">Admin</a></p>
+              </li>
+            </ul>
+            <h2><a href="/blog.html?slug=${blog._id}">${blog.title}</a></h2>
+            <p>${blog.content.slice(0, 100)}...</p>
+            <div class="btn-box">
+              <a href="/blog.html?slug=${blog._id}">Read More <span class="icon-next"></span></a>
+            </div>
+          </div>
+        </div>
+      `;
+      container.appendChild(blogItem);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+// Call the function to fetch and display blogs
+fetchLatestBlogs();
+
+            </script>
         </section>
         <!--End Blog One-->
 
