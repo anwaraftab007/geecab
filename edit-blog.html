@@ -351,6 +351,9 @@ body {
       
     </div>
     <div class="home_content" style="display: none;overflow-y: auto !important;">
+      <div class="loader w-full h-screen flex justify-center items-center text-center" id="loader">
+        <h2 class="text">Loading..</h2>
+      </div>
         <section class="contact-page min-h-screen flex items-center justify-center">
             <div class="flex flex-col items-center w-full">
                 <div class="flex items-center justify-center border-b rounded-t">
@@ -404,7 +407,7 @@ body {
         
         <script>
                     const apiBaseUrl = "https://geecab-server.onrender.com/api/blog"; // Adjust to your API URL
-        
+                    const loader = document.getElementById("loader");
                     document.addEventListener("DOMContentLoaded", function () {
                         // Extract blog slug from the URL (assuming it's the last part of the URL)
                         
@@ -418,13 +421,15 @@ body {
                                 const blog = await response.json();
         
                                 if (response.ok) {
+                                  loader.style.display = "none";
                                     // Populate the form with the existing blog data
                                     document.getElementById("title").value = blog.title;
                                     document.getElementById("content").value = blog.content;
                                     document.querySelector('.blog-image').src = blog.image;
                                     document.querySelector('.blog-image').style.display = 'block';
                                     blogId = blog._id;
-                                    console.log(blogId);
+                                    // console.log(blogId);
+
                                 } else {
                                     alert("Blog not found.");
                                     window.location.href = "/updateBlog.html";

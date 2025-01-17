@@ -147,7 +147,7 @@ $('a').click(function(event){
 
   document.getElementById("loginForm").addEventListener("submit", async (e) => {
       e.preventDefault();
-
+      document.getElementById("loginStatus").innerText = "Logging in...";
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 

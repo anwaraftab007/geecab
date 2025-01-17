@@ -338,7 +338,9 @@ body {
       
     </div>
     <div class="home_content" style="display: none;">
-        
+        <div class="loader w-full h-screen flex justify-center items-center text-center" id="loader">
+          <h2 class="text">Loading..</h2>
+        </div>
         <section class="contact">
             <div class="w-full flex items-center justify-between text-center">
                 <div class="w-full text">Create a Blog</div>
@@ -397,6 +399,7 @@ body {
             </div>
             <script>
 const div = document.querySelector(".home_content");
+const loader = document.getElementById("loader");
 fetch("https://geecab-server.onrender.com/api/is-logged-in", {
     method: "GET",
     headers: {
@@ -412,6 +415,8 @@ fetch("https://geecab-server.onrender.com/api/is-logged-in", {
     })
     .then((data) => {
         // Redirect to the create blog page or show the form
+        // document.getElementsByClassName("loader").style.display ="none";
+        loader.style.display = "none";
         div.style.display = "block";
     })
     .catch((error) => {

@@ -352,7 +352,9 @@ body {
     </div>
     <div class="home_content" style="display: none;overflow-y: auto !important;">
         
-            
+      <div class="loader w-full h-screen flex justify-center items-center text-center" id="loader">
+        <h2 class="text">Loading..</h2>
+      </div>
 <section class="contact-page">
     <div class="flex items-center justify-between border-b rounded-t">
         <h1 class="text text-center w-full">Select a Blog to Edit</h1>
@@ -367,7 +369,7 @@ body {
 
 <script>
     const apiBaseUrl = "https://geecab-server.onrender.com/api/blog"; // Adjust to your API URL
-
+    const loader = document.getElementById("loader");
     document.addEventListener("DOMContentLoaded", function () {
         // Fetch and display all blogs
         async function fetchBlogs() {
@@ -383,7 +385,7 @@ body {
 
                 // Clear existing content
                 blogList.innerHTML = "";
-
+                loader.style.display = "none";
                 // Loop through the blogs and create list items
                 blogs.forEach((blog) => {
                     const blogItem = document.createElement("div");

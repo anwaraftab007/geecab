@@ -351,7 +351,9 @@ body {
     </div>
     <div class="home_content" style="display: none;overflow-y: auto !important;">
         
-            
+      <div class="loader w-full h-screen flex justify-center items-center text-center" id="loader">
+        <h2 class="text">Loading..</h2>
+      </div>
 <section class="contact-page">
     <div class="flex items-center justify-between border-b rounded-t">
         <h1 class="text text-center w-full">Customer Enquiry</h1>
@@ -375,7 +377,6 @@ body {
 <script>
     document.getElementById("contactForm").addEventListener("submit", async (e) => {
          e.preventDefault(); // Prevent the default form submission behavior
-    
          const name = document.getElementById("name").value;
          const email = document.getElementById("email").value;
          const phone = document.getElementById("phone").value;
@@ -398,11 +399,11 @@ body {
                      productsInterested,
                  }),
              });
-    
+             
              // Log the response to check if it is a valid JSON
              const responseText = await response.text();
              console.log(responseText);  // Check the response in the console
-    
+
              // Check if the response is JSON
              if (response.ok) {
                  const result = JSON.parse(responseText);  // Parse only if it's valid JSON
@@ -419,6 +420,7 @@ body {
         </script>
     </div>
     <script>
+      const loader = document.getElementById("loader");
         const div = document.querySelector(".home_content");
         fetch("https://geecab-server.onrender.com/api/is-logged-in", {
             method: "GET",
@@ -435,6 +437,7 @@ body {
             })
             .then((data) => {
                 // Redirect to the create blog page or show the form
+                loader.style.display = "none";
                 div.style.display = "block";
             })
             .catch((error) => {
