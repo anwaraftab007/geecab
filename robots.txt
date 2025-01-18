@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: 
+Disallow: /cgi-bin/
+Disallow: /login.html
+Disallow: /admin010.html
+Disallow: /updateBlog.html
+Disallow: /edit-blog.html
+Disallow: /chats.html
+Sitemap: https://geecab-dev.netlify.app/sitemap.xml
