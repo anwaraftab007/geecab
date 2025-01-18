@@ -456,7 +456,9 @@ const currentDate = new Date().toISOString(); // Get current date in ISO format
         formData.append("image", document.getElementById("dropzone-file").files[0]);
         try {
             const response = await fetch(apiBaseUrl, {
-                method: "POST",
+                method: "POST",headers: {
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+    },
                 body: formData,
             });
 
