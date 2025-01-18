@@ -337,11 +337,11 @@ body {
     </div>
       
     </div>
-    <div class="home_content" style="display: none;">
+    <div class="home_content">
         <div class="loader w-full h-screen flex justify-center items-center text-center" id="loader">
           <h2 class="text">Loading..</h2>
         </div>
-        <section class="contact">
+        <section class="contact" style="display: none;">
             <div class="w-full flex items-center justify-between text-center">
                 <div class="w-full text">Create a Blog</div>
             </div>
@@ -398,7 +398,7 @@ body {
                 </form>
             </div>
             <script>
-const div = document.querySelector(".home_content");
+const div = document.querySelector(".contact");
 const loader = document.getElementById("loader");
 fetch("https://geecab-server.onrender.com/api/is-logged-in", {
     method: "GET",
@@ -450,10 +450,10 @@ resultDiv.innerHTML = '<span class="text-base font-bold text-blue-700">Creating 
 const currentDate = new Date().toISOString(); // Get current date in ISO format
         const formData = new FormData();
         formData.append("title", document.getElementById("title").value);
-        formData.append("content", document.getElementById("content").value);
+        const content = document.getElementById("content").value.replace(/\n/g, "<br>");
+        formData.append("content", content);
         formData.append("date", currentDate);  // Add the current date
         formData.append("image", document.getElementById("dropzone-file").files[0]);
-
         try {
             const response = await fetch(apiBaseUrl, {
                 method: "POST",
@@ -476,39 +476,7 @@ const currentDate = new Date().toISOString(); // Get current date in ISO format
         }
     });
 
-    // Fetch and display all blogs
-    async function fetchBlogs() {
-        try {
-            const response = await fetch(apiBaseUrl);
-            const blogs = await response.json();
-
-            const blogList = document.getElementById("blogList");
-            if (!blogList) {
-                console.error("blogList element not found!");
-                return;
-            }
-            blogList.innerHTML = ""; // Clear existing content
-
-            blogs.forEach((blog) => {
-                const blogDiv = document.createElement("div");
-                blogDiv.className = "blog";
-
-                blogDiv.innerHTML = `
-                    <h3>${blog.title}</h3>
-                    <p><strong>Date:</strong> ${new Date(blog.date).toLocaleDateString()}</p>
-                    <p>${blog.content}</p>
-                    <img src="${blog.image}" alt="${blog.title}" style="max-width: 100%; height: auto;">
-                `;
-
-                blogList.appendChild(blogDiv);
-            });
-        } catch (error) {
-            console.error("Error fetching blogs:", error);
-        }
-    }
-
-    // Initial fetch to load blogs
-    fetchBlogs();
+    
 });
 
             </script>
