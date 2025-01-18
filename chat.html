@@ -349,12 +349,12 @@ body {
         </div>
       </div>
     </div>
-    <div class="home_content" style="display: none;overflow-y: auto !important;">
+    <div class="home_content" style="overflow-y: auto !important;">
         
       <div class="loader w-full h-screen flex justify-center items-center text-center" id="loader">
         <h2 class="text">Loading..</h2>
       </div>
-<section class="contact-page">
+<section class="contact-page" style="display: none;">
     <div class="flex items-center justify-between border-b rounded-t">
         <h1 class="text text-center w-full">Customer Enquiry</h1>
     </div>
@@ -374,54 +374,10 @@ body {
     
 </section>
 
-<script>
-    document.getElementById("contactForm").addEventListener("submit", async (e) => {
-         e.preventDefault(); // Prevent the default form submission behavior
-         const name = document.getElementById("name").value;
-         const email = document.getElementById("email").value;
-         const phone = document.getElementById("phone").value;
-         const state = document.getElementById("state").value;
-         const city = document.getElementById("city").value;
-         const productsInterested = document.getElementById("products").value;
-    
-         try {
-             const response = await fetch("https://geecab-server.onrender.com/api/contact", {
-                 method: "POST",
-                 headers: {
-                     "Content-Type": "application/json",
-                 },
-                 body: JSON.stringify({
-                     name,
-                     email,
-                     phone,
-                     state,
-                     city,
-                     productsInterested,
-                 }),
-             });
-             
-             // Log the response to check if it is a valid JSON
-             const responseText = await response.text();
-             console.log(responseText);  // Check the response in the console
-
-             // Check if the response is JSON
-             if (response.ok) {
-                 const result = JSON.parse(responseText);  // Parse only if it's valid JSON
-                 document.querySelector(".result").innerHTML = `<p style="color: green;">${result.message}</p>`;
-             } else {
-                 document.querySelector(".result").innerHTML = `<p style="color: red;">${responseText || "Something went wrong."}</p>`;
-             }
-         } catch (error) {
-             console.error("Error:", error);
-             document.querySelector(".result").innerHTML = `<p style="color: red;">Failed to send data. Please try again later.</p>`;
-         }
-     });
-    
-        </script>
     </div>
     <script>
       const loader = document.getElementById("loader");
-        const div = document.querySelector(".home_content");
+        const div = document.querySelector(".contact-page");
         fetch("https://geecab-server.onrender.com/api/is-logged-in", {
             method: "GET",
             headers: {
@@ -479,13 +435,6 @@ searchBtn.addEventListener('click', () => {
   </body>
 </html>
 
-    <!-- <h1>Login</h1>
-    <form id="loginForm">
-        <input type="text" id="username" placeholder="Username" required />
-        <input type="password" id="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-    </form>
-    <p id="loginStatus"></p> -->
 
   
 

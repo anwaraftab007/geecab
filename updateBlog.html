@@ -350,12 +350,12 @@ body {
     </div>
       
     </div>
-    <div class="home_content" style="display: none;overflow-y: auto !important;">
+    <div class="home_content">
         
       <div class="loader w-full h-screen flex justify-center items-center text-center" id="loader">
         <h2 class="text">Loading..</h2>
       </div>
-<section class="contact-page">
+<section class="contact-page" style="display: none;overflow-y: auto !important;">
     <div class="flex items-center justify-between border-b rounded-t">
         <h1 class="text text-center w-full">Select a Blog to Edit</h1>
     </div>
@@ -508,7 +508,7 @@ body {
         </script>
     </div>
     <script>
-        const div = document.querySelector(".home_content");
+        const div = document.querySelector(".contact-page");
         fetch("https://geecab-server.onrender.com/api/is-logged-in", {
             method: "GET",
             headers: {
@@ -565,13 +565,6 @@ searchBtn.addEventListener('click', () => {
   </body>
 </html>
 
-    <!-- <h1>Login</h1>
-    <form id="loginForm">
-        <input type="text" id="username" placeholder="Username" required />
-        <input type="password" id="password" placeholder="Password" required />
-        <button type="submit">Login</button>
-    </form>
-    <p id="loginStatus"></p> -->
 
   
 
