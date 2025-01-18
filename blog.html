@@ -587,7 +587,8 @@
                             document.querySelector('.blog-date').textContent = `${new Date(blog.date).toLocaleDateString()}`;
                             document.querySelector('.blog-image').src = blog.image;
                             document.querySelector('.blog-image').style.display = 'block'; // Show the image
-                            document.querySelector('.content').textContent = blog.content;
+                            const formattedContent = blog.content.replace(/\n/g, "<br>");
+    document.querySelector('.content').innerHTML = formattedContent;
                           } catch (error) {
                             document.querySelector('.container').innerHTML = `
                               <h1>Blog Not Found</h1>
