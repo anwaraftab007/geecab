@@ -107,11 +107,11 @@
     content: "\e917";
   }
   .industrio-icon-gas-pipe:before {
-    content: url('./img/A.P.png');
+    content: url('./img/A.P.png'); 
   }
   
   .industrio-icon-wb:before{
-    content: url('./img/W.B.png');
+    content: url('./img/W.B.png'); 
   }
   
   .industrio-icon-assam:before{
