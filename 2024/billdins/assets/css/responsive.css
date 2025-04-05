@@ -476,7 +476,7 @@ Medium screen
 
     .footer-widget__contact {
         margin-left: 0px;
-        margin-top: 70px;
+        margin-top: 0px;
     }
 
     .footer-widget__gallery {
@@ -1003,7 +1003,7 @@ Tablet Layout: 768px
 
     .footer-widget__contact {
         margin-left: 0px;
-        margin-top: 70px;
+        margin-top: 0px;
     }
 
     .footer-widget__gallery {
@@ -1831,7 +1831,7 @@ Mobile Layout: 320px
 
     .footer-widget__contact {
         margin-left: 0px;
-        margin-top: 70px;
+        margin-top: 0px;
     }
 
     .footer-widget__gallery {
@@ -1874,7 +1874,7 @@ Mobile Layout: 320px
     }
 
     .footer-widget__useful-links {
-        margin-top: 70px;
+        margin-top: 0px;
     }
 
     .site-footer__bottom-inner {
