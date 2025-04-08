@@ -1820,6 +1820,12 @@ Main Header One Css
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+/* .large-menu{
+  display: none;
+}
+.product-items:hover .large-menu {
+  display: block;
+} */
 
 @media (min-width: 1600px) {
   .main-menu products .main-menu__list > li > ul,
