@@ -2495,10 +2495,11 @@ Mobile Layout: 320px
     .blog-standard__single-content .meta-box li+li {
         margin-top: 10px;
     }
-
-    .blog-standard__single-content h2 {
-        font-size: 25px;
-        line-height: 35px;
+    .blog-details {
+        position: relative;
+        display: block;
+        padding: 40px 0px 40px !important;
+        z-index: 1;
     }
 
     .sidebar__recent-post-list li {
