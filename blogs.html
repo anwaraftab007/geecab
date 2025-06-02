@@ -913,6 +913,8 @@ largeState.addEventListener('mouseleave', () => {
             
                   const blogList = document.getElementById("blogList");
                   blogs.forEach(blog => {
+                    console.log(JSON.stringify(blog));
+                    if (blog.title && blog.header && blog.thumbnail) {
                     const blogItem = document.createElement("div");
                     blogItem.classList.add("col-xl-4", "col-lg-4");
                     blogItem.innerHTML = `
@@ -923,8 +925,8 @@ largeState.addEventListener('mouseleave', () => {
                             <h3><span class="icon-calendar"></span> ${new Date(blog.date).toLocaleDateString()}</h3>
                           </div>
                           <div class="inner">
-                            <img src="${blog.image}" alt="${blog.title}">
-                            <img src="${blog.image}" alt="${blog.title}">
+                            <img src="${blog.thumbnail}" alt="${blog.title}">
+                            <img src="${blog.thumbnail}" alt="${blog.title}">
                           </div>
                         </div>
                         <div class="blog-one__single-content">
@@ -937,7 +939,7 @@ largeState.addEventListener('mouseleave', () => {
                             </li>
                           </ul>
                           <h2><a href="/blog.html?slug=${blog.slug}">${blog.title}</a></h2>
-                          <p>${blog.content.substring(0, 100)}...</p>
+                          <p>${blog.header?.substring(0, 100)}...</p>
                           <div class="btn-box">
                             <a href="/blog.html?slug=${blog.slug}">Read More <span class="icon-next"></span></a>
                           </div>
@@ -946,6 +948,7 @@ largeState.addEventListener('mouseleave', () => {
                       <!-- End Blog One Single -->
                     `;
                     blogList.appendChild(blogItem);
+                    }
                   });
                 }
             

@@ -29,7 +29,6 @@ body {
   position: relative;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
 }
 
 .sidebar {
@@ -342,146 +341,227 @@ body {
           <h2 class="text">Loading..</h2>
         </div>
         <section class="contact" style="display: none;">
-            <div class="w-full flex items-center justify-between text-center">
+            <div class="w-full flex flex-col md:flex-row items-center justify-between text-center">
                 <div class="w-full text">Create a Blog</div>
             </div>
             
             <div class="p-6 space-y-6 flex justify-center">
-                <form id="createBlogForm" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl px-4 md:px-8">
-                    <!-- Left Side: Title and Thumbnail -->
-                    <div class="space-y-6">
-                        <!-- Title -->
-                        <div>
-                            <label for="title" class="text-sm font-medium text-gray-900 block mb-2">Title*</label>
-                            <input type="text" name="title" id="title" 
-                                class="h-full shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#FF5E14] focus:border-cyan-600 block w-full p-2.5" 
-                                placeholder="Blog Title" required>
-                        </div>
-            
-                        <!-- Thumbnail -->
-                        <div>
-                            <div class="flex items-center justify-center w-full">
-                                <label for="dropzone-file" 
-                                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-orange-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-orange-100">
-                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                        <svg class="w-8 h-8 mb-4 text-white" 
-                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                                        </svg>
-                                        <p class="mb-2 text-sm text-white">
-                                            <span class="font-semibold">Click to upload</span> or drag and drop
-                                        </p>
-                                        <p class="text-xs text-white">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                                    </div>
-                                    <input id="dropzone-file" type="file" name="image" class="hidden" required>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-            
-                    <!-- Right Side: Content -->
-                    <div class="">
-                        <label for="content" class="text-sm font-medium text-gray-900 block mb-2">Content*</label>
-                        <textarea name="content" id="content"
-                            class="h-full shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#FF5E14] focus:border-cyan-600 block w-full p-2.5" 
-                            placeholder="Write your blog content here..." required></textarea>
-                    </div>
-            
-                    <!-- Submit Button -->
-                    <div class="md:col-span-2 p-6 border-t border-gray-200 rounded-b text-center">
-                        <button type="submit" class="text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-800">Submit</button>
+              <form id="createBlogForm" >
+                <div class="flex flex-col md:flex-row gap-6 w-full max-w-4xl px-4 md:px-8">
 
+                <div class="space-y-6">
+                  <div>
+                    <label for="title" class="text-sm font-medium text-gray-900 block mb-2">Title*</label>
+                    <input type="text" name="title" id="title"
+                      class="h-full shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#FF5E14] focus:border-cyan-600 block w-full p-2.5"
+                      placeholder="Blog Title" required>
+                  </div>
+              
+                  <div class="space-y-6">
+                    <div class="flex flex-col items-center justify-center w-full">
+                      <div class="w-full">
+                        <label for="thumbnail-file" class="block text-sm font-medium text-gray-700 mb-2">Thumbnail Image<b>*</b></label>
+                        <div class="mt-1 w-full flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                          <div class="space-y-1 text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                              <path d="M28 8H12a4 4 0 00-4 4v20m32-12v12a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 005.656 0L28 36m32-4Vtwelvea4 4 0 00-4-4h-32a4 4 0 00-4 4v20c0 2.206.895 4.206 2.344 5.656L28 48l15.656-15.656A4 4 0 0040 36z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                            <div class="flex text-sm text-gray-600">
+                              <label for="thumbnail-file" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                <span>Upload a file</span>
+                                <input id="thumbnail-file" name="thumbnail" type="file" class="sr-only" required>
+                              </label>
+                              <p class="pl-1">or drag and drop</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="w-full">
+                        <label for="middle-file" class="block text-sm font-medium text-gray-700 mb-2">Middle Image (Optional)</label>
+                        <div class="mt-1 w-full flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                          <div class="space-y-1 text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                              <path d="M28 8H12a4 4 0 00-4 4v20m32-12v12a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 005.656 0L28 36m32-4Vtwelvea4 4 0 00-4-4h-32a4 4 0 00-4 4v20c0 2.206.895 4.206 2.344 5.656L28 48l15.656-15.656A4 4 0 0040 36z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                            <div class="flex text-sm text-gray-600">
+                              <label for="middle-file" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                <span>Upload a file</span>
+                                <input id="middle-file" name="middle" type="file" class="sr-only">
+                              </label>
+                              <p class="pl-1">or drag and drop</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="w-full">
+                        <label for="lower-file" class="block text-sm font-medium text-gray-700 mb-2">Lower Image (Optional)</label>
+                        <div class="mt-1 w-full flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                          <div class="space-y-1 text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                              <path d="M28 8H12a4 4 0 00-4 4v20m32-12v12a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 005.656 0L28 36m32-4Vtwelvea4 4 0 00-4-4h-32a4 4 0 00-4 4v20c0 2.206.895 4.206 2.344 5.656L28 48l15.656-15.656A4 4 0 0040 36z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                            <div class="flex text-sm text-gray-600">
+                              <label for="lower-file" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                                <span>Upload a file</span>
+                                <input id="lower-file" name="lower" type="file" class="sr-only">
+                              </label>
+                              <p class="pl-1">or drag and drop</p>
+                            </div>
+                            <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                
-            <p id="result"></p>
-                </form>
+                  </div>
+                </div>
+              
+                <div class="space-y-6">
+                  <div>
+                    <label for="header-paragraph" class="block text-sm font-medium text-gray-700 mb-2">Header Paragraph*</label>
+                    <textarea name="header-paragraph" id="header-paragraph"
+                      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#FF5E14] focus:border-cyan-600 block w-full p-2.5 h-32"
+                      placeholder="Write the introductory paragraph for your blog..." required></textarea>
+                  </div>
+              
+                  <div>
+                    <label for="middle-paragraph" class="block text-sm font-medium text-gray-700 mb-2">Middle Paragraph (Optional)</label>
+                    <textarea name="middle-paragraph" id="middle-paragraph"
+                      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#FF5E14] focus:border-cyan-600 block w-full p-2.5 h-48"
+                      placeholder="Write the main content of your blog here..."></textarea>
+                  </div>
+              
+                  <div>
+                    <label for="lower-paragraph" class="block text-sm font-medium text-gray-700 mb-2">Lower Paragraph (Optional)</label>
+                    <textarea name="lower-paragraph" id="lower-paragraph"
+                      class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-[#FF5E14] focus:border-cyan-600 block w-full p-2.5 h-32"
+                      placeholder="Write a concluding paragraph for your blog..."></textarea>
+                  </div>
+                </div>
+                </div>
+            <div class="w-full flex justify-center items-center">
+
+                <!-- Submit Button -->
+                <div class="md:col-span-2 p-6 border-t border-gray-200 rounded-b text-center">
+                  <button type="submit" class="text-white bg-blue-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5">Submit</button>
+                </div>
+            
+                <p id="result" class="text-center col-span-2 text-green-600 font-medium"></p>
+
+            </div>
+              </form>
             </div>
             <script>
-const div = document.querySelector(".contact");
-const loader = document.getElementById("loader");
-fetch("https://geecab-server.onrender.com/api/is-logged-in", {
-    method: "GET",
-    headers: {
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    },
-})
-    .then((response) => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error("Unauthorized");
-        }
-    })
-    .then((data) => {
-        // Redirect to the create blog page or show the form
-        // document.getElementsByClassName("loader").style.display ="none";
-        loader.style.display = "none";
-        div.style.display = "block";
-    })
-    .catch((error) => {
-        console.error(error);
-        // Redirect to login if not authenticated
-        window.location.href = "/login.html";
-    });
-
-
-    document.getElementById("log_out").addEventListener("click", function () {
-        // Clear the auth token from localStorage
-        localStorage.removeItem("authToken");
-        
-        // Optional: If you also store it in sessionStorage
-        sessionStorage.removeItem("authToken");
-
-        // Redirect the user to the login page
-        window.location.href = "/login.html";
-    });
-
-                const apiBaseUrl = "https://geecab-server.onrender.com/api/blog"; // Adjust to your API URL
-            
-                document.addEventListener("DOMContentLoaded", function() {
-    // Now it's safe to run your script
+              const div = document.querySelector(".contact");
+              const loader = document.getElementById("loader");
+              
+              // Auth check
+              fetch("http://localhost:3001/api/is-logged-in", {
+                  method: "GET",
+                  headers: {
+                      Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                  },
+              })
+              .then((response) => {
+                  if (response.ok) return response.json();
+                  else throw new Error("Unauthorized");
+              })
+              .then((data) => {
+                  loader.style.display = "none";
+                  div.style.display = "block";
+              })
+              .catch((error) => {
+                  console.error(error);
+                  window.location.href = "/login.html";
+              });
+              
+              document.getElementById("log_out").addEventListener("click", function () {
+                  localStorage.removeItem("authToken");
+                  sessionStorage.removeItem("authToken");
+                  window.location.href = "/login.html";
+              });
+              
+              // Updated API Endpoint
+              document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("createBlogForm").addEventListener("submit", async (e) => {
-        // alert("Submit working");
         e.preventDefault();
-        const resultDiv = document.getElementById('result'); // Access the first element with the class "result"
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = '<span class="text-base font-bold text-blue-700">Creating Blog...</span>';
 
-resultDiv.innerHTML = '<span class="text-base font-bold text-blue-700">Creating Blog</span>';
-const currentDate = new Date().toISOString(); // Get current date in ISO format
         const formData = new FormData();
+
+        // Append Title
         formData.append("title", document.getElementById("title").value);
-        const content = document.getElementById("content").value.replace(/\n/g, "<br>");
-        formData.append("content", content);
-        formData.append("date", currentDate);  // Add the current date
-        formData.append("image", document.getElementById("dropzone-file").files[0]);
+
+        // Append Header Paragraph
+        const headerParagraph = document.getElementById("header-paragraph").value.replace(/\n/g, "<br>");
+        formData.append("header", headerParagraph);
+
+        // Append Middle Paragraph (if it exists)
+        const middleParagraphElement = document.getElementById("middle-paragraph");
+        if (middleParagraphElement) {
+            const middleParagraph = middleParagraphElement.value.replace(/\n/g, "<br>");
+            formData.append("middle", middleParagraph);
+        }
+
+        // Append Lower Paragraph (if it exists)
+        const lowerParagraphElement = document.getElementById("lower-paragraph");
+        if (lowerParagraphElement) {
+            const lowerParagraph = lowerParagraphElement.value.replace(/\n/g, "<br>");
+            formData.append("lower", lowerParagraph);
+        }
+
+        // Append Thumbnail Image
+        const thumbnailInput = document.getElementById("thumbnail-file");
+        if (thumbnailInput.files.length > 0) {
+            formData.append("thumbnail", thumbnailInput.files[0]);
+        }
+
+        // Append Middle Image (if selected)
+        const middleImageInput = document.getElementById("middle-file");
+        if (middleImageInput && middleImageInput.files.length > 0) {
+            formData.append("middleImage", middleImageInput.files[0]);
+        }
+
+        // Append Lower Image (if selected)
+        const lowerImageInput = document.getElementById("lower-file");
+        if (lowerImageInput && lowerImageInput.files.length > 0) {
+            formData.append("lowerImage", lowerImageInput.files[0]);
+        }
+
+        const currentDate = new Date().toISOString();
+        formData.append("date", currentDate);
+
+        const apiBaseUrl = "http://localhost:3001/api/blog/"; // Ensure this is still correct
+
         try {
             const response = await fetch(apiBaseUrl, {
-                method: "POST",headers: {
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-    },
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+                },
                 body: formData,
             });
 
             if (response.ok) {
                 alert("Blog created successfully!");
-                resultDiv.innerHTML = '<span class="text-base font-bold text-green-900">Blog Created Successfully..</span>';
-        fetchBlogs(); // Refresh the blog list
-        window.location.href = "/blogs.html"; // Redirect to the updated blog page
-     } else {
-                alert("Error creating blog.");
-                document.getElementById('result').innerHTML = '<span class="text-base font-bold text-red-900">Error Creating a Blog..</span>';
+                resultDiv.innerHTML = '<span class="text-base font-bold text-green-900">Blog Created Successfully.</span>';
+                window.location.href = "/blogs.html";
+            } else {
+                const errorData = await response.json();
+                console.error("Server error:", errorData);
+                resultDiv.innerHTML = `<span class="text-base font-bold text-red-900">Error: ${errorData.message || 'Error Creating Blog'}</span>`;
             }
         } catch (error) {
             console.error("Error:", error);
-            resultDiv.innerHTML = `<span class="text-base font-bold text-red-900">Error Creating a Blog..<br>Error: ${error}</span>`;
-
+            resultDiv.innerHTML = `<span class="text-base font-bold text-red-900">Client Error: ${error.message}</span>`;
         }
     });
-
-    
-});
-
-            </script>
+});</script>
+              
             
             
             

@@ -781,11 +781,11 @@ Blog Standard
 }
 
 .blog-standard__single-content h2 {
-    font-size: 30px;
+    font-size: 40px;
     line-height: 40px;
     font-weight: 700;
-    margin-top: 19px;
-    margin-bottom: 14px;
+    margin-top: 10px;
+    margin-bottom: 28px;
 }
 
 .blog-standard__single-content h2 a {
@@ -871,6 +871,7 @@ Blog Details
     position: relative;
     display: block;
     margin-top: 34px;
+    text-align: justify;
 }
 
 .blog-details__content-text2 h2 {
