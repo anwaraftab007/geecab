@@ -780,6 +780,46 @@ Blog Standard
     color: var(--billdins-base);
 }
 
+
+.custom-alpha-list {
+    counter-reset: alphabet;
+    list-style: none !important;
+    padding-left: .5em;
+    margin-bottom: 2rem;
+  }
+  .custom-alpha-list li {
+    counter-increment: alphabet;
+    margin-bottom: 10px;
+    padding-left: 1.5em;
+    /* text-indent: -1.5em; */
+    position: relative;
+  }
+  .custom-alpha-list li::before {
+    content: counter(alphabet, lower-alpha) ") ";
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+
+  .custom-roman-list {
+    counter-reset: roman;
+    list-style: none !important;
+    padding-left: .5em;
+    margin-bottom: 2rem;
+  }
+  .custom-roman-list li {
+    counter-increment: roman;
+    margin-bottom: 10px;
+    padding-left: 1.5em;
+    position: relative;
+  }
+  .custom-roman-list li::before {
+    content: counter(roman, lower-roman) ") ";
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+  }
+  
 .blog-standard__single-content h2 {
     font-size: 40px;
     line-height: 40px;
