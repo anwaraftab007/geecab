@@ -2194,7 +2194,38 @@ largeState.addEventListener('mouseleave', () => {
                 </div>
                 <div class="row" id="latest-blogs-container">
                     <!--Start Blog One Single-->
-                    
+                    <div class="col-xl-4 col-lg-4 wow fadeInLeft animated" data-wow-delay="200ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 200ms; animation-name: fadeInLeft;">
+                        <div class="blog-one__single">
+                            <div class="blog-one__single-img">
+                                <div class="date-box">
+                                    <h3><span class="icon-calendar"></span> 18 Jun, 2025</h3>
+                                </div>
+
+                                <div class="inner">
+                                    <img src="2024/billdins/assets/images/Products/Wires2.png" alt="">
+                                    <img src="2024/billdins/assets/images/Products/Wires2.png" alt="">
+                                </div>
+                            </div>
+
+                            <div class="blog-one__single-content">
+                                <ul class="meta-box">
+                                    <li>
+                                        <p><span class="icon-conversation"></span> <a href="#">02 Comments</a></p>
+                                    </li>
+
+                                    <li>
+                                        <p><span class="icon-user"></span> <a href="#">Admin</a></p>
+                                    </li>
+                                </ul>
+
+                                <h2><a href="how-to-choose-the-right-electric-cable-manufacturer-in-india.html">How to Choose the Right  <br> Electric Cable Manufacturer in India?</a></h2>
+                                <p>Real estate refers to land, buildings, natural resources such as water </p>
+                                <div class="btn-box">
+                                    <a href="how-to-choose-the-right-electric-cable-manufacturer-in-india.html">Read More <span class="icon-next"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!--End Blog One Single-->
                    
                 </div>
@@ -2202,55 +2233,55 @@ largeState.addEventListener('mouseleave', () => {
             <script>
                 const apiBaseUrl = "https://geecab-server.onrender.com/api/blog/latest"; // Adjust base URL if needed
 
-const fetchLatestBlogs = async () => {
-  try {
-    const response = await fetch(apiBaseUrl);
-    if (!response.ok) throw new Error("Failed to fetch latest blogs.");
-    const blogs = await response.json();
+// const fetchLatestBlogs = async () => {
+//   try {
+//     const response = await fetch(apiBaseUrl);
+//     if (!response.ok) throw new Error("Failed to fetch latest blogs.");
+//     const blogs = await response.json();
 
-    const container = document.getElementById("latest-blogs-container");
-    container.innerHTML = ""; // Clear any existing content
-
-    blogs.forEach((blog) => {
-      const blogItem = document.createElement("div");
-      blogItem.className = "col-xl-4 col-lg-4 wow fadeInLeft";
-      blogItem.innerHTML = `
-        <div class="blog-one__single">
-          <div class="blog-one__single-img">
-            <div class="date-box">
-              <h3><span class="icon-calendar"></span> ${new Date(blog.date).toLocaleDateString()}</h3>
-            </div>
-            <div class="inner">
-              <img src="${blog.image}" alt="${blog.title}" />
-              <img src="${blog.image}" alt="${blog.title}" />
-            </div>
-          </div>
-          <div class="blog-one__single-content">
-            <ul class="meta-box">
-              <li>
-                <p><span class="icon-conversation"></span> <a href="#">${blog.comments || "2"} Comments</a></p>
-              </li>
-              <li>
-                <p><span class="icon-user"></span> <a href="#">Admin</a></p>
-              </li>
-            </ul>
-            <h2><a href="/blog.html?slug=${blog.slug}">${blog.title}</a></h2>
-            <p>${blog.content.slice(0, 100)}...</p>
-            <div class="btn-box">
-              <a href="/blog.html?slug=${blog.slug}">Read More <span class="icon-next"></span></a>
-            </div>
-          </div>
-        </div>
-      `;
-      container.appendChild(blogItem);
-    });
-  } catch (error) {
-    console.error(error);
-  }
-};
+//     const container = document.getElementById("latest-blogs-container");
+//     container.innerHTML = ""; // Clear any existing content
+    
+//     blogs.forEach((blog) => {
+//       const blogItem = document.createElement("div");
+//       blogItem.className = "col-xl-4 col-lg-4 wow fadeInLeft";
+//       blogItem.innerHTML = `
+//         <div class="blog-one__single">
+//           <div class="blog-one__single-img">
+//             <div class="date-box">
+//               <h3><span class="icon-calendar"></span> ${new Date(blog.date).toLocaleDateString()}</h3>
+//             </div>
+//             <div class="inner">
+//               <img src="${blog.image}" alt="${blog.title}" />
+//               <img src="${blog.image}" alt="${blog.title}" />
+//             </div>
+//           </div>
+//           <div class="blog-one__single-content">
+//             <ul class="meta-box">
+//               <li>
+//                 <p><span class="icon-conversation"></span> <a href="#">${blog.comments || "2"} Comments</a></p>
+//               </li>
+//               <li>
+//                 <p><span class="icon-user"></span> <a href="#">Admin</a></p>
+//               </li>
+//             </ul>
+//             <h2><a href="/blog.html?slug=${blog.slug}">${blog.title}</a></h2>
+//             <p>${blog.content.slice(0, 100)}...</p>
+//             <div class="btn-box">
+//               <a href="/blog.html?slug=${blog.slug}">Read More <span class="icon-next"></span></a>
+//             </div>
+//           </div>
+//         </div>
+//       `;
+//       container.appendChild(blogItem);
+//     });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// };
 
 // Call the function to fetch and display blogs
-fetchLatestBlogs();
+// fetchLatestBlogs();
 
             </script>
         </section>
