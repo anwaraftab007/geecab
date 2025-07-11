@@ -853,7 +853,7 @@ Blog Details
 .blog-details {
     position: relative;
     display: block;
-    padding: 120px 0px 120px;
+    padding: 120px 0px 70px;
     z-index: 1;
 }
 
