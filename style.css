@@ -1,5 +1,5 @@
 .embla .subheading {
-    font-size: 18px !important;
+  font-size: 18px !important;
 }
 .embla {
   max-width: 90%;
@@ -27,7 +27,7 @@
   padding-left: var(--slide-spacing);
 }
 
-.embla__slide__number { 
+.embla__slide__number {
   border-radius: 1rem;
   font-size: 4rem;
   font-weight: 600;
@@ -65,31 +65,29 @@
     --slide-size: 15%; /* Default slide size for laptops */
   }
 }
- 
- /* Style for the card hover effect */
- .card:hover h3 {
-    color: white !important; /* Change the h3 text color to white on hover */
+
+/* Style for the card hover effect */
+.card:hover h3 {
+  color: white !important; /* Change the h3 text color to white on hover */
 }
-
-
 
 /* Reduce the gap between the list items (li) in the dropdown */
 ul.shadow-box {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    column-count: 2 !important; /* Split the dropdown into two columns */
-    column-gap: 10px !important; /* Adjust space between columns */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  column-count: 2 !important; /* Split the dropdown into two columns */
+  column-gap: 10px !important; /* Adjust space between columns */
 }
 
 /* Remove margin and padding from individual list items */
 ul.shadow-box > li {
-    margin: 0 !important;
-    padding: 5px 10px !important; /* Adjust padding as needed */
+  margin: 0 !important;
+  padding: 5px 10px !important; /* Adjust padding as needed */
 }
 
 /* Reduce space between dropdown links */
 ul.shadow-box > li > a {
-    padding: 5px 10px !important; /* Adjust padding to reduce space between the links */
+  padding: 5px 10px !important; /* Adjust padding to reduce space between the links */
 }
 
 /* Adjust the space on hover (if needed) */
@@ -99,80 +97,78 @@ ul.shadow-box > li > a {
 
 /* Ensure no extra margin on submenus */
 ul.shadow-box .dropdown-submenu {
-    margin: 0 !important;
+  margin: 0 !important;
 }
 
 /* Optional: Make sure submenu links also have reduced space */
 ul.shadow-box .dropdown-submenu > a {
-    padding: 5px 10px !important; /* Adjust padding for the submenu links */
+  padding: 5px 10px !important; /* Adjust padding for the submenu links */
 }
 
 /* Media query for small screens, ensuring proper alignment */
 @media (max-width: 768px) {
-    ul.shadow-box {
-        column-count: 1 !important; /* Make it a single column on smaller screens */
-    }
+  ul.shadow-box {
+    column-count: 1 !important; /* Make it a single column on smaller screens */
+  }
 }
 /* Style for the parent dropdown */
 .dropdown-submenu {
-    position: relative; /* Ensure submenu positioning is relative to this parent */
+  position: relative; /* Ensure submenu positioning is relative to this parent */
 }
-
 
 @media screen and (max-width: 1200px) {
-    .dropdown .big-menu {
-        display: none !important;
-    }
+  .dropdown .big-menu {
+    display: none !important;
+  }
 }
 @media screen and (min-width: 1200px) {
-    .dropdown .small-menu {
-        display: none !important;
-    }
-    /* General styles for the dropdown */
-.shadow-box {
+  .dropdown .small-menu {
+    display: none !important;
+  }
+  /* General styles for the dropdown */
+  .shadow-box {
     position: absolute;
     top: 0;
     left: -100% !important; /* Default position for dropdown (to the right) */
     margin-top: -1px;
     display: none;
-}
+  }
 
-/* Show the nested dropdown when hovering over its parent */
-.dropdown-submenu:hover > .shadow-box {
+  /* Show the nested dropdown when hovering over its parent */
+  .dropdown-submenu:hover > .shadow-box {
     display: block;
-}
+  }
 
-/* Adjust the nested dropdown position to the left */
-.dropdown-submenu .shadow-box {
+  /* Adjust the nested dropdown position to the left */
+  .dropdown-submenu .shadow-box {
     left: auto; /* Reset the default left position */
     right: 100%; /* Position the dropdown to the left */
     top: 0;
-}
+  }
 
-/* Dropdown menu link styles */
-.dropdown-submenu > a {
+  /* Dropdown menu link styles */
+  .dropdown-submenu > a {
     padding: 10px;
     color: #333;
     text-decoration: none;
     display: block;
     background-color: #f9f9f9;
-}
+  }
 
-/* .dropdown-submenu > a:hover {
+  /* .dropdown-submenu > a:hover {
     background-color: #e9e9e9;
 } */
 
-/* Nested dropdown shadow and spacing adjustments */
-.shadow-box ul {
+  /* Nested dropdown shadow and spacing adjustments */
+  .shadow-box ul {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
+  }
 }
 /* Show the nested dropdown when the parent is hovered */
 .dropdown-submenu:hover > .shadow-box {
-    display: block;
+  display: block;
 }
 
 /* Optional: Style for hovering over nested menu items */
@@ -181,16 +177,16 @@ ul.shadow-box .dropdown-submenu > a {
 } */
 /* Position the submenu to the left of the parent item */
 .dropdown-submenu > .shadow-box {
-    position: absolute !important;
-    right: 100% !important;  /* Open to the left */
-    top: 0 !important;       /* Align with top of the parent item */
-    z-index: 9999 !important; /* Ensure it is above other content */
-    display: none !important; /* Initially hidden */
+  position: absolute !important;
+  right: 100% !important; /* Open to the left */
+  top: 0 !important; /* Align with top of the parent item */
+  z-index: 9999 !important; /* Ensure it is above other content */
+  display: none !important; /* Initially hidden */
 }
 
 /* Display the nested menu on hover */
 .dropdown-submenu:hover > .shadow-box {
-    display: block !important;
+  display: block !important;
 }
 
 /* Optional: Style for hovering over nested menu items */

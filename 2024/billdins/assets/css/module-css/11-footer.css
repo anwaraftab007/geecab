@@ -5,7 +5,7 @@
     position: relative;
     display: block;
     background-color: var(--billdins-black);
-    padding: 80px 0px 0px;
+    padding: 10px 0px 0px;
     overflow: hidden;
     z-index: 1;
 }
@@ -566,7 +566,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(var(--billdins-black-rgb), 0.6);
+    background: var(--billdins-base);
     content: "";
 }
 
@@ -582,6 +582,7 @@
     position: relative;
     display: flex;
     align-items: center;
+    margin: auto;
 }
 
 .site-footer--two__top-right .text-box {
