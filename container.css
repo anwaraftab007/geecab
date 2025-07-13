@@ -14,15 +14,15 @@
 }
 @media (min-width: 1320px) {
   .container {
-    max-width: 1350px !important;
+    max-width: 1320px !important;
   }
 }
 /* 1536px to 1599px screens */
-/* @media (min-width: 1536px) and (max-width: 1599px) {
+@media (min-width: 1536px)  {
     .container {
-      max-width: 1300px !important;
+      max-width: 1420px !important;
     }
-  } */
+  }
 
 /* 1600px to 1679px screens */
 /* @media (min-width: 1600px) and (max-width: 1679px) {
