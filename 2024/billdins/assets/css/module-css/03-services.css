@@ -587,6 +587,14 @@ Services Details
     margin-top: 32px;
     margin-bottom: 34px;
 }
+@media (max-width: 768px) {
+    .services-details__content-img2 {
+        margin-top: 10px;
+    }
+    .services-details__content-text3{
+        margin-top: 0px !important;
+    }
+}
 
 .services-details__content-img2-single {
     position: relative;
