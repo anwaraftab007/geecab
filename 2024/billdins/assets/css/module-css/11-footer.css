@@ -30,7 +30,7 @@
 
 .site-footer__top {
     position: relative;
-    display: block;
+    display: none !important;
 }
 
 .site-footer__top-inner {

@@ -1409,6 +1409,7 @@ Main Header One Css
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  display: none !important;
 }
 
 .main-header__language-switcher {
