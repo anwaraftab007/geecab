@@ -37,8 +37,9 @@
 
   
 
-  /* @media (max-width: 1198px) {
-     .main-header-one {
-      display: none !important;
+  @media (max-width: 1198px) {
+    .stricky-header.stricky-fixed{
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
-  } */
+  }
