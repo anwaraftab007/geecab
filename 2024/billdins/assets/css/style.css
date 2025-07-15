@@ -229,7 +229,7 @@ button {
 Custom Cursor
 =============================================
 ***/
-.custom-cursor__cursor {
+/* .custom-cursor__cursor {
   width: 25px;
   height: 25px;
   border-radius: 100%;
@@ -269,7 +269,76 @@ Custom Cursor
   width: 25px;
   height: 25px;
   opacity: .4;
+} */
+
+
+
+#button {
+  display: inline-block;
+  background-color: #FF9800;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s, 
+    opacity .5s, visibility .5s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
 }
+#button::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#button:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+#button:active {
+  background-color: #555;
+}
+#button.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styles for the content section */
+
+.content {
+  width: 77%;
+  margin: 50px auto;
+  font-family: 'Merriweather', serif;
+  font-size: 17px;
+  color: #6c767a;
+  line-height: 1.9;
+}
+@media (min-width: 500px) {
+  .content {
+    width: 43%;
+  }
+  #button {
+    margin: 30px;
+  }
+}
+.content h1 {
+  margin-bottom: -10px;
+  color: #03a9f4;
+  line-height: 1.5;
+}
+.content h3 {
+  font-style: italic;
+  color: #96a2a7;
+}
+
+
 
 /***
 =============================================
@@ -657,6 +726,53 @@ Scroll To Top Css
 =============================================
 ***/
 .scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: #ff5e14;
+  border: 1px solid #ff5e14;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.scroll-to-top:hover {
+  transform: scale(1.05);
+}
+
+/* Hide the text span */
+.scroll-to-top__text {
+  display: none !important;
+}
+
+/* Remove extra wrapper's default visuals */
+.scroll-to-top__wrapper {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Only apply arrow styling to the innermost span */
+.scroll-to-top__inner {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  transform: rotate(-45deg);
+  margin-top: 2px;
+}
+
+/* .scroll-to-top {
   display: flex;
   align-items: center;
   width: auto;
@@ -669,7 +785,6 @@ Scroll To Top Css
   text-align: center;
   opacity: 0;
   visibility: hidden;
-  transform: rotate(-90deg);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -709,7 +824,7 @@ Scroll To Top Css
   opacity: 1;
   visibility: visible;
   bottom: 70px;
-}
+} */
 
 /***
 =============================================

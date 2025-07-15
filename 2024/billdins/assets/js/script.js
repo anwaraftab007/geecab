@@ -959,7 +959,7 @@
         if (percentage > 100) {
             percentage = 100;
         }
-        $(".scroll-to-top .scroll-to-top__inner").css("width", percentage + "%");
+        // $(".scroll-to-top .scroll-to-top__inner").css("width", percentage + "%");
     }
 
     // Animation gsap
