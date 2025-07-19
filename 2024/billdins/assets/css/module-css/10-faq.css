@@ -107,7 +107,7 @@ Faq One
 .faq-one-accrodion .accrodion-title h4 {
     position: relative;
     color: var(--billdins-black);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 24px;
     text-transform: capitalize;
@@ -123,7 +123,7 @@ Faq One
 .faq-one-accrodion .accrodion-title h4::before {
     position: absolute;
     color: var(--logistiq-black);
-    font-size: 16px;
+    font-size: 18px;
     line-height: 16px;
     font-weight: 700;
     top: 50%;
@@ -151,6 +151,7 @@ Faq One
 }
 
 .faq-one-accrodion .accrodion-content p {
+    font-size: 17px;
     margin: 0;
 }
 
