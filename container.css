@@ -47,3 +47,7 @@
   .service-page-why{
     margin-bottom: 25px !important;
   }
+
+  .sidebar__emergency-services-inner > .text-box {
+    text-align: justify;
+  }
