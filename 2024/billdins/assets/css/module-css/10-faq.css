@@ -7,7 +7,7 @@ Faq One
     position: relative;
     display: block;
     background: var(--billdins-black);
-    padding: 120px 0 120px;
+    /* padding: 120px 0 120px; */
     z-index: 1;
 }
 
