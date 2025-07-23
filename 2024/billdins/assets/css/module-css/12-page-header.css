@@ -10,6 +10,11 @@ Page Header
     overflow: hidden;
     z-index: 1;
 }
+@media (max-width: 991px) {
+    .page-header {
+        padding: 100px 0px 80px;
+    }
+}
 
 .page-header__bg {
     position: absolute;
