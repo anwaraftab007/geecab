@@ -10,6 +10,9 @@ Faq One
     /* padding: 120px 0 120px; */
     z-index: 1;
 }
+.faq-one-home{
+    padding: 120px 0 120px;
+}
 
 .faq-one .shape1 {
     position: absolute;
