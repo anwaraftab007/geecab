@@ -26,7 +26,9 @@
   min-width: 0;
   padding-left: var(--slide-spacing);
 }
-
+.large-state{
+  display: none !important;
+}
 .embla__slide__number {
   border-radius: 1rem;
   font-size: 4rem;
