@@ -235,7 +235,7 @@
                                             </li>
                                             <!-- Services -->
                                             <li class=" services">
-                                               <a href="/our-services.html">Our Services</a>
+                                               <a href="/our-services.html">Our Presence</a>
                                                 
                                                 <ul class="shadow-box small-menu">
                                                     <li class="dropdown"><a href="#" class="icons-justified">West Bengal</a>
@@ -891,7 +891,7 @@ largeState.addEventListener('mouseleave', () => {
                     <ul class="thm-breadcrumb wow fadeInUp animated" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-name: fadeInUp;">
                         <li><a href="/index.html">Home</a></li>
                         <li><span class="icon-right"></span></li>
-                        <li>Trusted Wire & Cable Manufacturer in West Bengal</li>
+                        <li>West Bengal</li>
                     </ul>
                 </div>
             </div>
@@ -968,7 +968,7 @@ largeState.addEventListener('mouseleave', () => {
                                 <h2 style="font-size: 28px !important;"><b>Engineered for Today, Ready for Tomorrow</b></h2>
                                 <p class="text2">
                                     At <b>GeeCab</b>, innovation isn’t just a promise—it’s a practice. We believe in building solutions that meet the demands of today while anticipating the needs of tomorrow. Our dedicated <b>in-house R&D team</b> is constantly working to develop smarter, more energy-efficient and environmentally responsible cabling technologies for a rapidly evolving world.
-                                    <br><br>
+                                    <br>
                                     <div class="">
                                         <div class="services-details__content-text3-list">
                                             <p class="text2">
@@ -1131,36 +1131,22 @@ largeState.addEventListener('mouseleave', () => {
                         
                         <div class="sidebar">
 
-                            <div class="sidebar__single sidebar__recent-post wow fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                           <!--Start Sidebar Single-->
+                            <div class="sidebar__single sidebar__services wow fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp; margin-bottom: 16px;">
                                 <div class="title-box">
-                                    <h2>Recent Post</h2>
+                                    <h2>Our Product Range</h2>
                                 </div>
 
-                                <ul class="sidebar__recent-post-list" id="recent-posts">
-                                    <!-- Items will load here -->
+                                <ul class="sidebar__services-list">
+                                        <li><a href="#">Wires & Cables <span class="icon-right-arrow"></span></a></li>
+                                        <li><a href="/product-pvc-pipes.html">PVC Electrical Pipes and Casing <span class="icon-right-arrow"></span></a></li>
+                                        <li><a href="/product-extension-cord.html">Extension Cords <span class="icon-right-arrow"></span></a></li>
+                                        <li><a href="/product-mcb.html">MCB Distribution Box <span class="icon-right-arrow"></span></a></li>
+                                        <li><a href="/product-pvc-tapes.html">PVC Tapes <span class="icon-right-arrow"></span></a></li>
+                                        <li><a href="/product-meters.html">Electric Meters <span class="icon-right-arrow"></span></a></li>
+                                        <li><a href="/product-gang-boxes.html">Gang Boxes <span class="icon-right-arrow"></span></a></li>
+                                    
                                 </ul>
-                                <script>
-                                    fetch("../../blog.json")
-                                      .then(response => response.json())
-                                      .then(posts => {
-                                        const list = document.getElementById("recent-posts");
-                                
-                                        posts.forEach(post => {
-                                          const li = document.createElement("li");
-                                          li.innerHTML = `
-                                            <div class="img-box">
-                                              <img src="https://unicktheme.com/2024/billdins/assets/images/blog/recent-post-img1.jpg" alt="${post.title}">
-                                            </div>
-                                            <div class="text-box">
-                                              <p><span class="icon-calendar"></span> ${post.date}</p>
-                                              <h3><a href="${post.url}">${post.title}</a></h3>
-                                            </div>
-                                          `;
-                                          list.appendChild(li);
-                                        });
-                                      })
-                                      .catch(error => console.error("Error loading blog.json:", error));
-                                  </script>
                             </div>
 
                             <div class="sidebar__single sidebar__emergency-services wow fadeInUp animated animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
@@ -1196,26 +1182,40 @@ largeState.addEventListener('mouseleave', () => {
                                 </div>
                             </div>
 
-                            <!--Start Sidebar Single-->
-                            <div class="sidebar__single sidebar__services wow fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp; margin-bottom: 16px;">
-                                <div class="title-box">
-                                    <h2>All Products</h2>
-                                </div>
-
-                                <ul class="sidebar__services-list">
-                                        <li><a href="#">Wires & Cables <span class="icon-right-arrow"></span></a></li>
-                                        <li><a href="/product-pvc-pipes.html">PVC Electrical Pipes and Casing <span class="icon-right-arrow"></span></a></li>
-                                        <li><a href="/product-extension-cord.html">Extension Cords <span class="icon-right-arrow"></span></a></li>
-                                        <li><a href="/product-mcb.html">MCB Distribution Box <span class="icon-right-arrow"></span></a></li>
-                                        <li><a href="/product-pvc-tapes.html">PVC Tapes <span class="icon-right-arrow"></span></a></li>
-                                        <li><a href="/product-meters.html">Electric Meters <span class="icon-right-arrow"></span></a></li>
-                                        <li><a href="/product-gang-boxes.html">Gang Boxes <span class="icon-right-arrow"></span></a></li>
-                                    
-                                </ul>
-                            </div>
+                            
                             <!--End Sidebar Single-->
 
-                           
+                            <div class="sidebar__single sidebar__recent-post wow fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                <div class="title-box">
+                                    <h2>Recent Post</h2>
+                                </div>
+
+                                <ul class="sidebar__recent-post-list" id="recent-posts">
+                                    <!-- Items will load here -->
+                                </ul>
+                                <script>
+                                    fetch("../../blog.json")
+                                      .then(response => response.json())
+                                      .then(posts => {
+                                        const list = document.getElementById("recent-posts");
+                                
+                                        posts.forEach(post => {
+                                          const li = document.createElement("li");
+                                          li.innerHTML = `
+                                            <div class="img-box">
+                                              <img src="https://unicktheme.com/2024/billdins/assets/images/blog/recent-post-img1.jpg" alt="${post.title}">
+                                            </div>
+                                            <div class="text-box">
+                                              <p><span class="icon-calendar"></span> ${post.date}</p>
+                                              <h3><a href="${post.url}">${post.title}</a></h3>
+                                            </div>
+                                          `;
+                                          list.appendChild(li);
+                                        });
+                                      })
+                                      .catch(error => console.error("Error loading blog.json:", error));
+                                  </script>
+                            </div>
 
                             
                         </div>
