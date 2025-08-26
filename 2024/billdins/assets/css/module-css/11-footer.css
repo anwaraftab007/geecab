@@ -295,6 +295,9 @@
 .footer-widget__contact-list li:nth-child(3) {
     align-items: center;
 }
+.footer-widget__contact-list li:nth-child(2) .text-box{
+    top: 8px;
+}
 
 .footer-widget__contact-list li .icon-box {
     position: relative;
