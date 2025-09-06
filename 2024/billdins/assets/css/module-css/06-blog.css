@@ -388,6 +388,7 @@
     padding: 20px 25px 19px;
     transition: all 200ms linear;
     transition-delay: 0.1s;
+    padding-left: 0px !important;
 }
 
 .sidebar__services-list li.active a,
