@@ -1012,28 +1012,138 @@ largeState.addEventListener('mouseleave', () => {
                         
                             <div class="services-details__content-text2">
                                 <h2 class="pb-2">Frequently Asked Questions (FAQs)</h2>
-                                <ul class="custom-list">
-                                    <li>
-                                        <span class="icon-verified"></span>
-                                        <p class="text2"><strong>Q1. Why should I trust GeeCab over other brands in the market?</strong><br>GeeCab has a <strong>proven legacy</strong> in the Indian electrical industry, offering <strong>technical excellence</strong>, <strong>strict quality controls</strong>, and <strong>customer-first service</strong>.</p>
-                                    </li>
-                                    <li>
-                                        <span class="icon-verified"></span>
-                                        <p class="text2"><strong>Q2. Do you supply to dealers and wholesalers across India?</strong><br>Yes, GeeCab has a <strong>robust dealer and distribution network</strong> across multiple Indian states and supports <strong>bulk orders</strong> for contractors and OEMs.</p>
-                                    </li>
-                                    <li>
-                                        <span class="icon-verified"></span>
-                                        <p class="text2"><strong>Q3. Is your PVC Electric Tape flame retardant?</strong><br>Absolutely. Our tapes are <strong>flame retardant</strong> and designed for high-risk electrical environments.</p>
-                                    </li>
-                                    <li>
-                                        <span class="icon-verified"></span>
-                                        <p class="text2"><strong>Q4. How can I be sure of the quality of your tape?</strong><br>All our products undergo <strong>multi-point quality inspections</strong> and meet or exceed national safety standards.</p>
-                                    </li>
-                                    <li>
-                                        <span class="icon-verified"></span>
-                                        <p class="text2"><strong>Q5. Can your PVC Electric Tape be used outdoors?</strong><br>Yes, it’s <strong>UV and weather resistant</strong>, ideal for both indoor and outdoor use in Indian conditions.</p>
-                                    </li>
-                                </ul>
+                                    <style>
+                                        .faq-container {
+                                          margin: 0 auto;
+                                          background: #fff;
+                                          border-radius: 10px;
+                                          overflow: hidden;
+                                        }
+                                      
+                                        .faq-item {
+                                          border-bottom: 1px solid #ddd;
+                                        }
+                                      
+                                        .faq-question {
+                                          background: #fdfaf9;
+                                          padding: 15px 20px;
+                                          cursor: pointer;
+                                          font-size: 16px;
+                                          font-weight: bold;
+                                          position: relative;
+                                          line-height: 1.4;
+                                          transition: background 0.3s ease;
+                                          padding-right: 14px;
+                                        }
+                                      
+                                        .faq-question:hover {
+                                          background: #e5e5e5;
+                                        }
+                                      
+                                        .faq-question::after {
+                                          content: "+";
+                                          font-size: 20px;
+                                          font-weight: bold;
+                                          position: absolute;
+                                          right: 3%;
+                                          top: 14%;
+                                          transition: transform 0.3s ease;
+                                        }
+                                      
+                                        .faq-question.active::after {
+                                          content: "−";
+                                        }
+                                      
+                                        .faq-answer {
+                                          max-height: 0;
+                                          overflow: hidden;
+                                          padding: 0 20px;
+                                          background: #fff;
+                                          color: #333;
+                                          transition: max-height 0.2s ease, padding 0.3s ease;
+                                          font-size: 14px;
+                                          line-height: 1.6;
+                                        }
+                                      
+                                        .faq-answer.open {
+                                          padding: 15px 20px;
+                                          max-height: 400px; /* enough for long answers */
+                                        }
+                                      
+                                        @media (max-width: 600px) {
+                                          .faq-question {
+                                            font-size: 14px;
+                                            padding: 12px 16px;
+                                          }
+                                          .faq-answer {
+                                            font-size: 13px;
+                                            padding: 0 16px;
+                                          }
+                                          .faq-answer.open {
+                                            padding: 12px 16px;
+                                          }
+                                        }
+                                      </style>
+                                      
+                                      <div class="faq-container">
+                                        <div class="faq-item">
+                                          <div class="faq-question">Q1. Why should I trust GeeCab over other brands in the market?</div>
+                                          <div class="faq-answer">
+                                            <p>GeeCab has a <strong>proven legacy</strong> in the Indian electrical industry, offering <strong>technical excellence</strong>, <strong>strict quality controls</strong>, and <strong>customer-first service</strong>.</p>
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="faq-item">
+                                          <div class="faq-question">Q2. Do you supply to dealers and wholesalers across India?</div>
+                                          <div class="faq-answer">
+                                            <p>Yes, GeeCab has a <strong>robust dealer and distribution network</strong> across multiple Indian states and supports <strong>bulk orders</strong> for contractors and OEMs.</p>
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="faq-item">
+                                          <div class="faq-question">Q3. Is your PVC Electric Tape flame retardant?</div>
+                                          <div class="faq-answer">
+                                            <p>Absolutely. Our tapes are <strong>flame retardant</strong> and designed for high-risk electrical environments.</p>
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="faq-item">
+                                          <div class="faq-question">Q4. How can I be sure of the quality of your tape?</div>
+                                          <div class="faq-answer">
+                                            <p>All our products undergo <strong>multi-point quality inspections</strong> and meet or exceed national safety standards.</p>
+                                          </div>
+                                        </div>
+                                      
+                                        <div class="faq-item">
+                                          <div class="faq-question">Q5. Can your PVC Electric Tape be used outdoors?</div>
+                                          <div class="faq-answer">
+                                            <p>Yes, it’s <strong>UV and weather resistant</strong>, ideal for both indoor and outdoor use in Indian conditions.</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                      <script>
+                                        const questions = document.querySelectorAll(".faq-question");
+                                      
+                                        questions.forEach(q => {
+                                          q.addEventListener("click", () => {
+                                            // close all others
+                                            questions.forEach(item => {
+                                              if(item !== q) {
+                                                item.classList.remove("active");
+                                                item.nextElementSibling.classList.remove("open");
+                                              }
+                                            });
+                                      
+                                            // toggle clicked one
+                                            q.classList.toggle("active");
+                                            q.nextElementSibling.classList.toggle("open");
+                                          });
+                                        });
+                                      </script>
+                             
+                                  
+                                
                             </div>
                         </div>
                         
