@@ -949,13 +949,38 @@ largeState.addEventListener('mouseleave', () => {
                             </h2>
                           
                              <!-- Responsive Image -->
-                    <div class="responsive-image max-w-screen-xl mx-auto pt-4 lg:pt-18">
-                        <picture>
-                          <source srcset="/2024/billdins/assets/images/about/GeeCab-phone.png" media="(max-width: 768px)">
-                          <source srcset="/2024/billdins/assets/images/about/GeeCab-desktop.png" media="(min-width: 769px)">
-                          <img src="/2024/billdins/assets/images/about/GeeCab-desktop.png" alt="GeeCab Responsive">
-                        </picture>
-                      </div>
+                             <div class="geecab-images flex flex-wrap justify-center items-center gap-4 my-4 md:my-8 mt-6 md:mt-8">
+                              <img src="img/Genuine.png" class="w-[180px] h-[60px] object-contain" alt="G" />
+                              <img src="img/Efficient.png" class="w-[180px] h-[60px] object-contain" alt="E" />
+                              <img src="img/Engineered.png" class="w-[180px] h-[60px] object-contain" alt="E" />
+                              <img src="img/Connectivity.png" class="w-[180px] h-[60px] object-contain" alt="C" />
+                              <img src="img/Advanced.png" class="w-[180px] h-[60px] object-contain" alt="A" />
+                              <img src="img/Brillance.png" class="w-[180px] h-[60px] object-contain" alt="B" />
+                            </div>
+                            
+                            
+                            
+                    <style>
+                    .geecab-images {
+                      display: flex;
+                      justify-content: center; /* Center on desktop */
+                      align-items: center;
+                      gap: 15px; /* Space between images */
+                      flex-wrap: nowrap; /* Keep in one row on desktop */
+                      
+                    }
+                    
+                    /* Responsive for mobile */
+                    @media (max-width: 768px) {
+                      .geecab-images {
+                        flex-direction: column;
+                        gap: 10px;
+                        display: block;
+                      }
+                    
+                    }
+                    </style>
+                    
                           </div>
                     </div>
                </section>
