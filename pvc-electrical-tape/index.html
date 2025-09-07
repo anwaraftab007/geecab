@@ -1049,6 +1049,37 @@ largeState.addEventListener('mouseleave', () => {
                         <div class="sidebar">
 
 
+                            <div class="sidebar__single sidebar__recent-post wow fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                <div class="title-box">
+                                    <h2>Recent Post</h2>
+                                </div>
+
+                                <ul class="sidebar__recent-post-list" id="recent-posts">
+                                    <!-- Items will load here -->
+                                </ul>
+                                <script>
+                                    fetch("../../blog.json")
+                                      .then(response => response.json())
+                                      .then(posts => {
+                                        const list = document.getElementById("recent-posts");
+                                
+                                        posts.forEach(post => {
+                                          const li = document.createElement("li");
+                                          li.innerHTML = `
+                                            <div class="img-box">
+                                              <img src="https://unicktheme.com/2024/billdins/assets/images/blog/recent-post-img1.jpg" alt="${post.title}">
+                                            </div>
+                                            <div class="text-box">
+                                              <p><span class="icon-calendar"></span> ${post.date}</p>
+                                              <h3><a href="${post.url}">${post.title}</a></h3>
+                                            </div>
+                                          `;
+                                          list.appendChild(li);
+                                        });
+                                      })
+                                      .catch(error => console.error("Error loading blog.json:", error));
+                                  </script>
+                            </div>
                              <!--Start Sidebar Single-->
                              <div class="sidebar__single sidebar__services wow fadeInUp animated animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp; margin-bottom: 16px;">
                                 <div class="title-box">
@@ -1103,39 +1134,7 @@ largeState.addEventListener('mouseleave', () => {
                                 </div>
                             </div>
 
-                          
-
-                            <div class="sidebar__single sidebar__recent-post wow fadeInUp animated" data-wow-delay=".1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-                                <div class="title-box">
-                                    <h2>Recent Post</h2>
-                                </div>
-
-                                <ul class="sidebar__recent-post-list" id="recent-posts">
-                                    <!-- Items will load here -->
-                                </ul>
-                                <script>
-                                    fetch("../../blog.json")
-                                      .then(response => response.json())
-                                      .then(posts => {
-                                        const list = document.getElementById("recent-posts");
-                                
-                                        posts.forEach(post => {
-                                          const li = document.createElement("li");
-                                          li.innerHTML = `
-                                            <div class="img-box">
-                                              <img src="https://unicktheme.com/2024/billdins/assets/images/blog/recent-post-img1.jpg" alt="${post.title}">
-                                            </div>
-                                            <div class="text-box">
-                                              <p><span class="icon-calendar"></span> ${post.date}</p>
-                                              <h3><a href="${post.url}">${post.title}</a></h3>
-                                            </div>
-                                          `;
-                                          list.appendChild(li);
-                                        });
-                                      })
-                                      .catch(error => console.error("Error loading blog.json:", error));
-                                  </script>
-                            </div>
+                        
 
                             
                         </div>
