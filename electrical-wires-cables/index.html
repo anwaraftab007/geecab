@@ -1060,20 +1060,31 @@ largeState.addEventListener('mouseleave', () => {
                                 margin: 20px 0;
                                 margin-bottom: 28px;
                                 text-align: justify !important;
+                                
                               ">
-                                <div class="blog-details__content-text2">
-                                    <ul>
-                                        <li><strong>📞 Call Us:</strong> <a href="tel:+91-9477651731">+91-9477651731</a></li>
-                                        <li><strong>📧 Email:</strong> <a href="mailto:info@geecab.in">info@geecab.in</a></li>
-                                    </ul>
+                                    <ul style="margin-top: 4px;">
+                                        <li>
+                                          <strong>📞 Call Us:</strong> 
+                                          <a href="tel:+91-9477651731" style="color: #007bff; ">
+                                            +91-9477651731
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <strong>📧 Email:</strong> 
+                                          <a href="mailto:info@geecab.in" style="color: #007bff; ">
+                                            info@geecab.in
+                                          </a>
+                                        </li>
+                                      </ul>
+                                      
                                     <br>
-                                    <p class="text1"><strong>Precision in Every Strand. Protection in Every Layer.</strong></p>
-                                    <p style="padding-bottom: 24px;">
-                                        <strong>
-                                            GeeCab - Wiring India's Progress, One Connection at a Time.
-                                        </strong>
+                                    <p class="text2">
+                                        <strong>Precision in Every Strand. Protection in Every Layer.</strong>
+                                        <span style="display:block;">
+                                            <strong>GeeCab - Wiring India's Progress, One Connection at a Time.</strong>
+                                        </span>
                                     </p>
-                                </div>
+                                    
                                 </div>
                             </div>
                         
@@ -1222,7 +1233,7 @@ largeState.addEventListener('mouseleave', () => {
                                     <!-- Items will load here -->
                                 </ul>
                                 <script>
-                                    fetch("../blog.json")
+                                    fetch("/blog.json")
                                       .then(response => response.json())
                                       .then(posts => {
                                         const list = document.getElementById("recent-posts");

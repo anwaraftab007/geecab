@@ -736,7 +736,7 @@ Blog Standard
 .blog-standard__single-content {
     position: relative;
     display: block;
-    margin-top: 28px;
+    margin-top: 0px;
 }
 
 .blog-standard__single-content .meta-box {
@@ -825,7 +825,6 @@ Blog Standard
     font-size: 40px;
     line-height: 40px;
     font-weight: 700;
-    margin-top: 10px;
     margin-bottom: 28px;
 }
 

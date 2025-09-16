@@ -94,7 +94,7 @@ Page Header
     font-size: 48px;
     line-height: 1.1em;
     font-weight: 700;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 .page-header__inner .thm-breadcrumb {
