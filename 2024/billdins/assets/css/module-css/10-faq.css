@@ -66,7 +66,6 @@ Faq One
 .faq-one__faq {
     position: relative;
     display: block;
-    max-width: 500px;
     width: 100%;
 }
 
@@ -253,7 +252,6 @@ Faq One Faq
 }
 
 .faq-one--faq .faq-one__faq {
-    max-width: 800px;
     width: 100%;
     margin: 0 auto;
 }
