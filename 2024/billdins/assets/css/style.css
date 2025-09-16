@@ -2318,3 +2318,8 @@ Main Header Two Css
     display: grid !important;
 }
 }
+
+
+.img-box{
+  display: none !important;
+}
