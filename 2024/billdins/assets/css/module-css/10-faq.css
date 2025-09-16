@@ -139,6 +139,40 @@ Faq One
     font-family: 'icomoon' !important;
 }
 
+.faq-one-accrodion .accrodion-title p {
+    position: relative;
+    color: var(--billdins-black) !important;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    /* text-transform: capitalize; */
+    margin: 0;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+.faq-one-accrodion .accrodion.active .accrodion-title p {
+    color: var(--billdins-black) !important;
+}
+
+.faq-one-accrodion .accrodion-title p::before {
+    position: absolute;
+    color: var(--logistiq-black) !important;
+    font-size: 18px;
+    line-height: 16px;
+    font-weight: 700;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    text-align: center;
+    content: "\e904";
+    font-family: 'icomoon' !important;
+}
+
+
 .faq-one-accrodion .accrodion.active .accrodion-title h4::before {
     content: "\e904";
     color: var(--billdins-base);
