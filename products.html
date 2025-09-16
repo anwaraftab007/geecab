@@ -879,6 +879,69 @@ largeState.addEventListener('mouseleave', () => {
 
 
         </script>
+
+        <style>
+          .cards-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+.card {
+    position:relative; background:white; border-radius:16px; overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1); transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+.card:hover {transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,0.15);}
+.image-container {position:relative; width:100%; height:280px; overflow:hidden; background:#f0f0f0;}
+.card-image {width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;}
+.card:hover .card-image {transform:scale(1.05);}
+.arrow-badge {
+    position:absolute; top:0; right:0; width:80px; height:80px;
+    background:linear-gradient(135deg,#1a1f2e 0%,#2d3748 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index:10; display:flex; align-items:center; justify-content:center;
+    box-shadow:-5px 5px 20px rgba(0,0,0,0.2);
+}
+.arrow-wrapper {
+    position:absolute; top:15px; right:15px; width:30px; height:30px;
+    display:flex; align-items:center; justify-content:center; animation: floatArrow 2s ease-in-out infinite;
+}
+@keyframes floatArrow {0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+.arrow-svg {width:24px; height:24px; transform:rotate(45deg);}
+.arrow-svg path {stroke:white; stroke-width:2.5; fill:none; stroke-linecap:round; stroke-linejoin:round; filter:drop-shadow(0 0 3px rgba(255,255,255,0.5));}
+
+/* Desktop side branding */
+.side-branding {
+    position:absolute; left:0; top:0; bottom:0; width:60px;
+    background-color:#ff6b00; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; padding:10px 0; transform:none;
+}
+.brand-logo {
+    width:28px; height:28px; border-radius:50%; background:white;
+    display:flex; align-items:center; justify-content:center; margin-bottom:10px;
+}
+.brand-logo span {color:#ff6b00; font-weight:bold; font-size:16px;}
+.brand-text {writing-mode: sideways-lr; color:white; font-weight:600; letter-spacing:0.5px; text-align:center;}
+
+/* Mobile bottom branding */
+.side-branding-mobile {
+    display:none; background:#ff6b00; color:white; gap:8px; align-items:center; justify-content:center;
+    padding:8px; font-weight:600; border-radius:0 0 16px 16px; margin-top:8px;
+}
+.side-branding-mobile .brand-logo {width:24px; height:24px; font-size:14px; margin:0; background:white; color:#ff6b00;}
+
+/* Responsive grid */
+@media (max-width:992px) { .cards-grid{grid-template-columns:repeat(2,1fr); gap:24px;} }
+@media (max-width:640px) {
+    .cards-grid{grid-template-columns:1fr; gap:20px;}
+    body{padding:20px 16px;}
+    .image-container{height:240px;}
+    .arrow-badge{width:65px;height:65px;}
+    .arrow-wrapper{top:12px;right:12px;width:25px;height:25px;}
+    .arrow-svg{width:20px;height:20px;}
+    .side-branding{display:none;}
+    .side-branding-mobile{display:flex;}
+}
+        </style>
         <!--End Main Header One-->
 <div class="stricky-header stricked-menu main-menu">
             <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
@@ -904,294 +967,209 @@ largeState.addEventListener('mouseleave', () => {
 
         <section class="services-one services-one--services">
             <div class="container">
-                <section class="services-two">
-                    <div class="tabs-content">
-                        <!--Start Single Tab Content-->
-                        <div class="tab active-tab" id="products" style="display: block;">
-                          <div class="row gap-y-8">
-                      
-                            <!-- Wires & Cables -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Wires & Cables">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product/wires-and-cables.html" class="title-equalized">
-                                          <span>W</span><span>i</span><span>r</span><span>e</span><span>s</span>
-                                          <span> </span><span>&</span><span> </span>
-                                          <span>C</span><span>a</span><span>b</span><span>l</span><span>e</span><span>s</span>
-                                          <!-- hidden filler to 26 -->
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product/wires-and-cables.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+              <div class="cards-grid">
+
+                <!-- Product 1 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Wires & Cables" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- PVC Conduit & Flexible Pipes -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="PVC Conduit & Flexible Pipes">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-pvc-conduit.html" class="title-equalized">
-                                          <span>P</span><span>V</span><span>C</span>
-                                          <span> </span><span>C</span><span>o</span><span>n</span><span>d</span><span>u</span><span>i</span><span>t</span>
-                                          <span> </span><span>&</span><span> </span>
-                                          <span>F</span><span>l</span><span>e</span><span>x</span><span>i</span><span>b</span><span>l</span><span>e</span>
-                                          <span> </span><span>P</span><span>i</span><span>p</span><span>e</span><span>s</span>
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-pvc-conduit.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>W</span></div>
+                            <span class="brand-text">Wires & Cables</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>W</span></div>
+                        <span>Wires & Cables</span>
+                    </div>
+                </div>
+        
+                <!-- Product 2 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="PVC Conduit & Flexible Pipes" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- Gang Box -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Gang Box">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-gang-box.html" class="title-equalized">
-                                          <span>G</span><span>a</span><span>n</span><span>g</span><span> </span><span>B</span><span>o</span><span>x</span>
-                                          <!-- hidden filler -->
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span>
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-gang-box.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>P</span></div>
+                            <span class="brand-text">PVC Conduit & Flexible Pipes</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>P</span></div>
+                        <span>PVC Conduit & Flexible Pipes</span>
+                    </div>
+                </div>
+        
+                <!-- Product 3 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Gang Box" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- Extension Cord -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Extension Cord">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-extension-cord.html" class="title-equalized">
-                                          <span>E</span><span>x</span><span>t</span><span>e</span><span>n</span><span>s</span><span>i</span><span>o</span><span>n</span>
-                                          <span> </span><span>C</span><span>o</span><span>r</span><span>d</span>
-                                          <!-- hidden filler -->
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span>
-                                        
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-extension-cord.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>G</span></div>
+                            <span class="brand-text">Gang Box</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>G</span></div>
+                        <span>Gang Box</span>
+                    </div>
+                </div>
+        
+                <!-- Product 4 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Extension Cord" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- MCB Distribution Board -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="MCB Distribution Board">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-mcb.html" class="title-equalized">
-                                          <span>M</span><span>C</span><span>B</span>
-                                          <span> </span><span>D</span><span>i</span><span>s</span><span>t</span><span>r</span><span>i</span><span>b</span><span>u</span><span>t</span><span>i</span><span>o</span><span>n</span>
-                                          <span> </span><span>B</span><span>o</span><span>a</span><span>r</span><span>d</span>
-                                          <!-- hidden filler -->
-                                          <span class="hidden-char">x</span>
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-mcb.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>E</span></div>
+                            <span class="brand-text">Extension Cord</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>E</span></div>
+                        <span>Extension Cord</span>
+                    </div>
+                </div>
+        
+                <!-- Product 5 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="MCB Distribution Board" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- Electric Meter -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Electric Meter">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-meter.html" class="title-equalized">
-                                          <span>E</span><span>l</span><span>e</span><span>c</span><span>t</span><span>r</span><span>i</span><span>c</span>
-                                          <span> </span><span>M</span><span>e</span><span>t</span><span>e</span><span>r</span>
-                                          <!-- hidden filler -->
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-meter.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>M</span></div>
+                            <span class="brand-text">MCB Distribution Board</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>M</span></div>
+                        <span>MCB Distribution Board</span>
+                    </div>
+                </div>
+        
+                <!-- Product 6 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Electric Meter" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- PVC Electric Tape -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="PVC Electric Tape">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-pvc-tape.html" class="title-equalized">
-                                          <span>P</span><span>V</span><span>C</span>
-                                          <span> </span><span>E</span><span>l</span><span>e</span><span>c</span><span>t</span><span>r</span><span>i</span><span>c</span>
-                                          <span> </span><span>T</span><span>a</span><span>p</span><span>e</span>
-                                          <!-- hidden filler -->
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span>
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-pvc-tape.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>E</span></div>
+                            <span class="brand-text">Electric Meter</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>E</span></div>
+                        <span>Electric Meter</span>
+                    </div>
+                </div>
+        
+                <!-- Product 7 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="PVC Electric Tape" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- Wall Light -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Wall Light">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-wall-light.html" class="title-equalized">
-                                          <span>W</span><span>a</span><span>l</span><span>l</span>
-                                          <span> </span><span>L</span><span>i</span><span>g</span><span>h</span><span>t</span>
-                                          <!-- hidden filler -->
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-wall-light.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>P</span></div>
+                            <span class="brand-text">PVC Electric Tape</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>P</span></div>
+                        <span>PVC Electric Tape</span>
+                    </div>
+                </div>
+        
+                <!-- Product 8 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Wall Light" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- Heater Coil -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Heater Coil">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-heater-coil.html" class="title-equalized">
-                                          <span>H</span><span>e</span><span>a</span><span>t</span><span>e</span><span>r</span>
-                                          <span> </span><span>C</span><span>o</span><span>i</span><span>l</span>
-                                          <!-- hidden filler -->
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                          <span class="hidden-char">x</span><span class="hidden-char">x</span>
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-heater-coil.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>W</span></div>
+                            <span class="brand-text">Wall Light</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>W</span></div>
+                        <span>Wall Light</span>
+                    </div>
+                </div>
+        
+                <!-- Product 9 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Heater Coil" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
                             </div>
-                      
-                            <!-- Cable Clips & Accessories -->
-                            <div class="col-xl-4 col-lg-4">
-                              <div class="services-two__single-tab">
-                                <div class="services-two__single-tab-inner">
-                                  <div class="services-two__single-img">
-                                    <img src="https://unicktheme.com/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Cable Clips & Accessories">
-                                  </div>
-                                  <div class="content-box">
-                                    <div class="text">
-                                      <h3>
-                                        <a href="/product-cable-clips.html" class="title-equalized">
-                                          <span>C</span><span>a</span><span>b</span><span>l</span><span>e</span> 
-                                          <span> </span><span>C</span><span>l</span><span>i</span><span>p</span><span>s</span>
-                                          <span> </span><span>&</span><span> </span>
-                                          <span>A</span><span>c</span><span>c</span><span>e</span><span>s</span><span>s</span><span>o</span><span>r</span><span>i</span><span>e</span><span>s</span>
-                                          <!-- hidden filler -->
-                                          
-                                        </a>
-                                      </h3>
-                                    </div>
-                                    <div class="icon-box">
-                                      <a href="/product-cable-clips.html"><span class="icon-next"></span></a>
-                                    </div>
-                                  </div>
-                      
-                  </section>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>H</span></div>
+                            <span class="brand-text">Heater Coil</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>H</span></div>
+                        <span>Heater Coil</span>
+                    </div>
+                </div>
+        
+                <!-- Product 10 -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Cable Clips & Accessories" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
+                            </div>
+                        </div>
+                        <div class="side-branding">
+                            <div class="brand-logo"><span>C</span></div>
+                            <span class="brand-text">Cable Clips & Accessories</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <div class="brand-logo"><span>C</span></div>
+                        <span>Cable Clips & Accessories</span>
+                    </div>
+                </div>
+        
+            </div>
                   <style>
                     .title-equalized {
   display: inline-flex;
