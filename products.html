@@ -898,8 +898,21 @@ largeState.addEventListener('mouseleave', () => {
     box-shadow:0 10px 30px rgba(0,0,0,0.1); transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
 }
 .card:hover {transform:translateY(-8px); box-shadow:0 20px 40px rgba(0,0,0,0.15);}
-.image-container {position:relative; width:100%; height:280px; overflow:hidden; background:#f0f0f0;}
-.card-image {width:100%; height:100%; object-fit:cover; transition:transform 0.5s ease;}
+.image-container {
+    width: 100%;
+    aspect-ratio: 315 / 265; /* keeps original image ratio */
+    overflow: hidden;
+    position: relative;
+    background: #f0f0f0;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* fills container without stretching */
+    transition: transform 0.5s ease;
+}
+
 .card:hover .card-image {transform:scale(1.05);}
 .arrow-badge {
     position:absolute; top:0; right:0; width:80px; height:80px;
@@ -940,7 +953,7 @@ largeState.addEventListener('mouseleave', () => {
 @media (max-width:992px) { .cards-grid{grid-template-columns:repeat(2,1fr); gap:24px;} }
 @media (max-width:640px) {
     .cards-grid{grid-template-columns:1fr; gap:20px;}
-    .image-container{height:240px;}
+    
     .arrow-badge{width:65px;height:65px;}
     .arrow-wrapper{top:12px;right:12px;width:25px;height:25px;}
     .arrow-svg{width:20px;height:20px;}
@@ -975,208 +988,312 @@ largeState.addEventListener('mouseleave', () => {
             <div class="container">
               <div class="cards-grid">
 
-                <!-- Product 1 -->
+                <!-- Product 1: Wires & Cables -->
                 <div class="card">
                     <div class="image-container">
-                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Wires & Cables" class="card-image">
+                        <img src="/product-img/WiresCable.jpeg" alt="Wires & Cables" class="card-image">
                         <div class="arrow-badge">
                             <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
                             </div>
                         </div>
                         <div class="side-branding">
-                           
                             <span class="brand-text">Wires & Cables</span>
                         </div>
                     </div>
                     <div class="side-branding-mobile">
-                       
                         <span>Wires & Cables</span>
                     </div>
                 </div>
-        
-                <!-- Product 2 -->
+            
+                <!-- Product 2: Gang Box -->
                 <div class="card">
                     <div class="image-container">
-                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="PVC Conduit & Flexible Pipes" class="card-image">
+                        <img src="/product-img/GangBox.jpeg" alt="Gang Box" class="card-image">
                         <div class="arrow-badge">
                             <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
                             </div>
                         </div>
                         <div class="side-branding">
-                           
-                            <span class="brand-text">PVC Conduit & Flexible Pipes</span>
-                        </div>
-                    </div>
-                    <div class="side-branding-mobile">
-                       
-                        <span>PVC Conduit & Flexible Pipes</span>
-                    </div>
-                </div>
-        
-                <!-- Product 3 -->
-                <div class="card">
-                    <div class="image-container">
-                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Gang Box" class="card-image">
-                        <div class="arrow-badge">
-                            <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
-                            </div>
-                        </div>
-                        <div class="side-branding">
-                            
                             <span class="brand-text">Gang Box</span>
                         </div>
                     </div>
                     <div class="side-branding-mobile">
-                        
                         <span>Gang Box</span>
                     </div>
                 </div>
-        
-                <!-- Product 4 -->
-                <div class="card">
-                    <div class="image-container">
-                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Extension Cord" class="card-image">
-                        <div class="arrow-badge">
-                            <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
-                            </div>
-                        </div>
-                        <div class="side-branding">
-                            
-                            <span class="brand-text">Extension Cord</span>
-                        </div>
-                    </div>
-                    <div class="side-branding-mobile">
-                        
-                        <span>Extension Cord</span>
-                    </div>
-                </div>
-        
-                <!-- Product 5 -->
-                <div class="card">
-                    <div class="image-container">
-                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="MCB Distribution Board" class="card-image">
-                        <div class="arrow-badge">
-                            <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
-                            </div>
-                        </div>
-                        <div class="side-branding">
-                          
-                            <span class="brand-text">MCB Distribution Board</span>
-                        </div>
-                    </div>
-                    <div class="side-branding-mobile">
-                      
-                        <span>MCB Distribution Board</span>
-                    </div>
-                </div>
-        
-                <!-- Product 6 -->
+            
+                <!-- Product 3: Electric Meter -->
                 <div class="card">
                     <div class="image-container">
                         <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Electric Meter" class="card-image">
                         <div class="arrow-badge">
                             <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
                             </div>
                         </div>
                         <div class="side-branding">
-                           
                             <span class="brand-text">Electric Meter</span>
                         </div>
                     </div>
                     <div class="side-branding-mobile">
-                       
                         <span>Electric Meter</span>
                     </div>
                 </div>
-        
-                <!-- Product 7 -->
+            
+                <!-- Product 4: PVC Conduit Pipe -->
                 <div class="card">
                     <div class="image-container">
-                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="PVC Electric Tape" class="card-image">
+                        <img src="/product-img/PVCConduitPipe.jpeg" alt="PVC Conduit Pipe" class="card-image">
                         <div class="arrow-badge">
                             <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
                             </div>
                         </div>
                         <div class="side-branding">
-                            
-                            <span class="brand-text">PVC Electric Tape</span>
+                            <span class="brand-text">PVC Conduit Pipe</span>
                         </div>
                     </div>
                     <div class="side-branding-mobile">
-                        
-                        <span>PVC Electric Tape</span>
+                        <span>PVC Conduit Pipe</span>
                     </div>
                 </div>
-        
-                <!-- Product 8 -->
+            
+                <!-- Product 5: Corrugated Flexible Pipe -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/product-img/PVCFlexiblePip.jpeg" alt="Corrugated Flexible Pipe" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="side-branding">
+                            <span class="brand-text">Corrugated Flexible Pipe</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <span>Corrugated Flexible Pipe</span>
+                    </div>
+                </div>
+            
+                <!-- Product 6: PVC Cassing -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/product-img/PVCCassin.jpeg" alt="PVC Cassing" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="side-branding">
+                            <span class="brand-text">PVC Cassing</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <span>PVC Cassing</span>
+                    </div>
+                </div>
+            
+                <!-- Product 7: Extension Cord -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Extension Cord" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="side-branding">
+                            <span class="brand-text">Extension Cord</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <span>Extension Cord</span>
+                    </div>
+                </div>
+            
+                <!-- Product 8: MCB Distribution Board -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="MCB Distribution Board" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="side-branding">
+                            <span class="brand-text">MCB Distribution Board</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <span>MCB Distribution Board</span>
+                    </div>
+                </div>
+            
+                <!-- Product 9: MCB Switch -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="MCB Switch" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="side-branding">
+                            <span class="brand-text">MCB Switch</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <span>MCB Switch</span>
+                    </div>
+                </div>
+            
+                <!-- Product 10: GI Box -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="GI Box" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="side-branding">
+                            <span class="brand-text">GI Box</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <span>GI Box</span>
+                    </div>
+                </div>
+            
+                <!-- Product 11: Wall Light -->
                 <div class="card">
                     <div class="image-container">
                         <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Wall Light" class="card-image">
                         <div class="arrow-badge">
                             <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
                             </div>
                         </div>
                         <div class="side-branding">
-                            
                             <span class="brand-text">Wall Light</span>
                         </div>
                     </div>
                     <div class="side-branding-mobile">
-                        
                         <span>Wall Light</span>
                     </div>
                 </div>
-        
-                <!-- Product 9 -->
+            
+                <!-- Product 12: PVC Electric Tape -->
+                <div class="card">
+                    <div class="image-container">
+                        <img src="/product-img/PVCElectricTap.jpeg" alt="PVC Electric Tape" class="card-image">
+                        <div class="arrow-badge">
+                            <div class="arrow-wrapper">
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="side-branding">
+                            <span class="brand-text">PVC Electric Tape</span>
+                        </div>
+                    </div>
+                    <div class="side-branding-mobile">
+                        <span>PVC Electric Tape</span>
+                    </div>
+                </div>
+            
+                <!-- Product 13: Heater Coil -->
                 <div class="card">
                     <div class="image-container">
                         <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Heater Coil" class="card-image">
                         <div class="arrow-badge">
                             <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
                             </div>
                         </div>
                         <div class="side-branding">
-                          
                             <span class="brand-text">Heater Coil</span>
                         </div>
                     </div>
                     <div class="side-branding-mobile">
-                      
                         <span>Heater Coil</span>
                     </div>
                 </div>
-        
-                <!-- Product 10 -->
+            
+                <!-- Product 14: Cable Management Accessories -->
                 <div class="card">
                     <div class="image-container">
-                        <img src="/2024/billdins/assets/images/services/services-v2-img3.jpg" alt="Cable Clips & Accessories" class="card-image">
+                        <img src="/product-img/CableManagementAccessorie.jpeg" alt="Cable Management Accessories (Cable Clips & Ties)" class="card-image">
                         <div class="arrow-badge">
                             <div class="arrow-wrapper">
-                                <svg class="arrow-svg" viewBox="0 0 24 24"><path d="M12 4L12 20M12 4L6 10M12 4L18 10"/></svg>
+                                <svg class="arrow-svg" viewBox="0 0 24 24">
+                                    <path d="M12 4L12 20M12 4L6 10M12 4L18 10"/>
+                                </svg>
                             </div>
                         </div>
                         <div class="side-branding">
-                           
-                            <span class="brand-text">Cable Clips & Accessories</span>
+                            <span class="brand-text">Cable Management Accessories (Cable Clips & Ties)</span>
                         </div>
                     </div>
                     <div class="side-branding-mobile">
-                       
-                        <span>Cable Clips & Accessories</span>
+                        <span>Cable Management Accessories (Cable Clips & Ties)</span>
                     </div>
                 </div>
-        
+            
             </div>
+            
                   <style>
+                    /* Container to keep consistent aspect ratio */
+.image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* keeps uniform card image shape */
+  overflow: hidden;
+  border-radius: 10px; /* optional rounded corners */
+}
+
+/* Images inside cards */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills container without squishing */
+  object-position: center; /* keeps image centered */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Add a nice hover zoom effect */
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+
                     .title-equalized {
   display: inline-flex;
   flex-wrap: nowrap;
@@ -1197,215 +1314,7 @@ largeState.addEventListener('mouseleave', () => {
             </div>
 
         </section>
-            <link href="./2024/icons/style.css" rel="stylesheet"/>
-
-
-            <div class="embla">
-                <h2 class="text-3xl text-center font-bold mb-4">Our Presence</h2>
-                <div class="embla__viewport">
-                  <div class="embla__container">
-                    <!-- First Slide - West Bengal Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-in-west-bengal.html"> 
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-wb"></i></span>
-                      
-                        <p class="subheading">West Bengal</p>
-                      </div>
-                      </div>  
-                        </a>
-                    </div>
-                    
-                    <!-- Second Slide - Bhutan Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-bhutan.html"> 
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-Bhutan"></i></span>
-                      
-                        <p class="subheading">Bhutan</p>
-                      </div>
-                      </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Third Slide - Odisha Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-odisha.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-odisha"></i></span>
-                      
-                        <p class="subheading">Odisha</p>
-                      </div>
-                      </div>
-                      </a>
-                    </div>
-                    
-                    
-                    <!-- Fifth Slide - Bihar Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-bihar.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-bihar"></i></span>
-                      
-                        <p class="subheading">Bihar</p>
-                      </div>
-                      </div>
-                      </a>
-                    </div>
-                    
-                    <!-- Sixth Slide - Jharkhand Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-jharkhand.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-jharkhand"></i></span>
-                      
-                        <p class="subheading">Jharkhand</p>
-                      </div>
-                      </div>
-                      </a>
-                    </div>
-                    
-                    <!-- Seventh Slide - Sikkim Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-sikkim.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-sikkim"></i></span>
-                      
-                        <p class="subheading">Sikkim</p>
-                      </div>
-                      </div>
-                      </a>
-                    </div>
-                    
-                    <!-- Eighth Slide - Assam Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-assam.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-assam"></i></span>
-                      
-                        <p class="subheading">Assam</p>
-                      </div>
-                      </div>
-                      </a>
-                    </div>
-                    
-                    <!-- Ninth Slide - Tripura Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-tripura.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-tripura"></i></span>
-                      
-                        <p class="subheading">Tripura</p>
-                      </div>
-                      </div>
-                      </a>
-                    </div>
-                    
-                    <!-- Tenth Slide - Manipur Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-manipur.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-manipur"></i></span>
-                      
-                        <p class="subheading">Manipur</p>
-                      </div>
-                      </div>
-                      </a>
-                    </div>
-                    
-                    <!-- Eleventh Slide - Nagaland Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-nagaland.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-nagaland"></i></span>
-                      
-                        <p class="subheading">Nagaland</p>
-                      </div>
-                      </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Twelfth Slide - Arunachal Pradesh Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-arunachal-pradesh.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-gas-pipe"></i></span>
-                      
-                        <p class="subheading">Arunachal Pradesh</p>
-                      </div>
-                      </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Thirteenth Slide - Mizoram Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-mizoram.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-mizoram"></i></span>
-                      
-                        <p class="subheading">Mizoram</p>
-                      </div>
-                      </div>
-                        </a>
-                    </div>
-                    
-                    <!-- Fourteenth Slide - Meghalaya Icon -->
-                    <div class="embla__slide">
-                        <a href="./best-wires-and-cables-manufacturer-meghalaya.html">
-                      <div class="embla__slide__number">
-                        <div class="w-full text-center">
-                        <span><i class="industrio-icon-meghalaya"></i></span>
-                      
-                        <p class="subheading">Meghalaya</p>
-                      </div>
-                      </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              
           
-              <!-- Embla Carousel and AutoScroll CDN -->
-              <script type="module">
-                import EmblaCarousel from 'https://cdn.jsdelivr.net/npm/embla-carousel@8.5.1/+esm';
-                import AutoScroll from 'https://cdn.jsdelivr.net/npm/embla-carousel-auto-scroll@8.5.1/+esm';
-          
-                // Embla Carousel and AutoScroll Initialization
-                const emblaNode = document.querySelector('.embla');
-                const viewportNode = emblaNode.querySelector('.embla__viewport');
-                
-                // Carousel options
-                const OPTIONS = { loop: true };
-          
-                // Initialize AutoScroll with a very small interval for continuous scrolling
-                const autoScroll = AutoScroll({ interval: 20 }); // Adjust this value for speed
-                
-                // Initialize EmblaCarousel
-                const emblaApi = EmblaCarousel(viewportNode, OPTIONS, [autoScroll]);
-          
-                // Add hover event listeners to control autoplay
-                emblaNode.addEventListener('mouseenter', () => {
-                  autoScroll.stop(); // Stop autoplay on hover
-                });
-          
-                emblaNode.addEventListener('mouseleave', () => {
-                  autoScroll.play(); // Resume autoplay when hover ends
-                });
-              </script>
         </section>
         
 
