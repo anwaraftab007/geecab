@@ -89,7 +89,7 @@ ul.shadow-box > li {
 
 /* Reduce space between dropdown links */
 ul.shadow-box > li > a {
-  padding: 5px 10px !important; /* Adjust padding to reduce space between the links */
+  padding: 5px 0px !important; /* Adjust padding to reduce space between the links */
 }
 
 /* Adjust the space on hover (if needed) */

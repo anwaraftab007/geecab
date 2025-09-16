@@ -1092,7 +1092,7 @@ Mobile Nav Css
 .mobile-nav__content .main-menu__list>li>ul>li>ul {
   display: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-left: 0.5em;
+  margin-left: 0em;
 }
 
 .mobile-nav__content .main-menu__list>li:not(:last-child),
